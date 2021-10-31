@@ -1,4 +1,5 @@
 export class RequestModel {
+  // allows to access attribute using brackets, e.g. request['address']
   // 1- personal properties
   name: string;
   address: string;
