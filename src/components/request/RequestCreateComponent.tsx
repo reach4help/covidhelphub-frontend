@@ -174,9 +174,9 @@ export default function GetSupport() {
             let check = !requestObj[name]
             setRequestObj({ ...requestObj, [name]: check });
         } else {
-            let check = !requestObj[name].checked;
-            let prop = requestObj[name]
-            setRequestObj({ ...requestObj, [name]: { ...prop, checked: check } });
+            let check = !(requestObj[name as keyof RequestModel] as { checked: boolean, value: string }).checked;
+            let prop = requestObj[name as keyof RequestModel]
+            setRequestObj({ ...requestObj, [name]: { ...(prop as { checked: boolean, value: string }), checked: check } });
         }
     }
 
