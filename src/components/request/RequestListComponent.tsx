@@ -22,26 +22,26 @@ const RequestListComponent = () => {
     getData();
   }, []);
 
-  let RequestLinks = {};
-  // TODO: move styling to CSS or define at bottom
+  // let RequestLinks = {};
+  // // TODO: move styling to CSS or define at bottom
   const StageButtons = stages.map(stage => {
     const fontWeight = stage.code.toUpperCase() === stageCode.toUpperCase() ? "bold" : "normal";
     return <Link key={`stage-${stage.code}`} to={`/request/list/${programCode}/${stage.code}`} style={{ padding: "0px 50px 0px 0px", fontWeight: `${fontWeight}` }}> {stage.code}</Link >
   })
-  RequestLinks = requests.filter(request => request.programCode === programCode.toUpperCase()).map((requestObj, i) => {
-    return (
-      <tr key={`requestrow-${requestObj.requestorName}-${i}`}>
-        <td>{requestObj.targetDate}</td>
-        <td>{requestObj.flexibleDate}</td>
-        <td>{requestObj.creationTs}</td>
-        <td>{requestObj.requestorName}</td>
-        <td>{requestObj.address}</td>
-        <td>{requestObj.phone}</td>
-        <td>{requestObj.email}</td>
-        <td><button>Email Blast</button></td>
-      </tr>
-    );
-  });
+  // RequestLinks = requests.filter(request => request.programCode === programCode.toUpperCase()).map((requestObj, i) => {
+  //   return (
+  //     <tr key={`requestrow-${requestObj.requestorName}-${i}`}>
+  //       <td>{requestObj.targetDate}</td>
+  //       <td>{requestObj.flexibleDate}</td>
+  //       <td>{requestObj.creationTs}</td>
+  //       <td>{requestObj.requestorName}</td>
+  //       <td>{requestObj.address}</td>
+  //       <td>{requestObj.phone}</td>
+  //       <td>{requestObj.email}</td>
+  //       <td><button>Email Blast</button></td>
+  //     </tr>
+  //   );
+  // });
 
   function addRequest() {
     history.push('/request/create');
@@ -66,7 +66,7 @@ const RequestListComponent = () => {
             <th>Email</th>
           </tr>
         </thead>
-        <tbody>{RequestLinks}</tbody>
+        {/* <tbody>{RequestLinks}</tbody> */}
       </table>
       <hr />
       <br />
