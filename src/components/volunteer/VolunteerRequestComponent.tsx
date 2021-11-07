@@ -1,12 +1,10 @@
-import React from 'react';
-import Style from '../formik/formikStyle.module.css';
-import FieldComponent from '../formik/fieldComponents/FieldComponent';
+import React from "react";
 import {
   EXAMPLE_FORM,
   EXAMPLE_INITAL_VALUES,
   EXAMPLE_SCHEMA,
-} from './VolunteerRequestData';
-import { Formik, Form } from 'formik';
+} from "./VolunteerRequestData";
+import FormikComponent from "../formik/FormikComponent";
 
 function VolunteerRequestComponent() {
   /**
@@ -24,35 +22,15 @@ function VolunteerRequestComponent() {
   const { form: formSections, initialValues, schema } = getData();
 
   return (
-    <div className={Style.getInvolved}>
-      <Formik
+    <>
+      <h1>Volunteer Application Form</h1>
+      <p>Thank you for your interest in volunteering for us! Please fill out our volunteer form so we can start matching you with tasks.</p>
+      <FormikComponent
+        formSections={formSections}
         initialValues={initialValues}
-        validationSchema={schema}
-        onSubmit={(values, { setSubmitting }) => {
-          console.log(values);
-          setSubmitting(false);
-        }}
-      >
-        <Form className={Style.volunteerForm}>
-          {formSections.map(formSection => (
-            <div key={formSection.id} className={Style.formField}>
-              <h2 className={Style.informationCategory}>{formSection.label}</h2>
-              <div>
-                {formSection.formFields.map(formField => (
-                  <FieldComponent
-                    key={formField.name}
-                    formField={formField}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
-          <button type="submit" className={Style.submit}>
-            Submit
-          </button>
-        </Form>
-      </Formik>
-    </div>
+        schema={schema}
+      />
+    </>
   );
 }
 
