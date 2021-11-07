@@ -3,10 +3,10 @@ import {
   VOLUNTEER_FORM,
   VOLUNTEER_INITAL_VALUES,
   VOLUNTEER_SCHEMA,
-} from "./VolunteerRequestData";
+} from "./VolunteerFormData";
 import FormikComponent from "../formik/FormikComponent";
 
-function VolunteerRequestComponent() {
+function VolunteerFormComponent() {
   /**
    * Gets the form field data from the back end
    * TODO: complete the function
@@ -34,4 +34,4 @@ function VolunteerRequestComponent() {
   );
 }
 
-export default VolunteerRequestComponent;
+export default VolunteerFormComponent;
