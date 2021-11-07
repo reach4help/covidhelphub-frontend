@@ -11,6 +11,7 @@ import StageListComponent from './components/stage/StageListComponent';
 
 import './globals.css';
 import { NavBarFunc } from './NavBarFunc';
+import VolunteerRequestComponent from './components/volunteer/VolunteerRequestComponent';
 // import ProgramRequestSelection from './components/request/RequestProgramSelection';
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
           <Route exact path="/program/list" component={ProgramListComponent} />
           <Route exact path="/stage/list" component={StageListComponent} />
           {/* <Route exact path="/beneficiaries/list" component={BeneficiariesComponent} /> */}
+          <Route exact path="/volunteer/list" component={VolunteerRequestComponent} />
           <Route component={HomeComponent} />
         </Switch>
       </div>
