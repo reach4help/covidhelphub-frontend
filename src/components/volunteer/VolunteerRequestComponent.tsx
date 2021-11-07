@@ -1,8 +1,8 @@
 import React from "react";
 import {
-  EXAMPLE_FORM,
-  EXAMPLE_INITAL_VALUES,
-  EXAMPLE_SCHEMA,
+  VOLUNTEER_FORM,
+  VOLUNTEER_INITAL_VALUES,
+  VOLUNTEER_SCHEMA,
 } from "./VolunteerRequestData";
 import FormikComponent from "../formik/FormikComponent";
 
@@ -13,9 +13,9 @@ function VolunteerRequestComponent() {
    */
   const getData = () => {
     return {
-      form: EXAMPLE_FORM,
-      initialValues: EXAMPLE_INITAL_VALUES,
-      schema: EXAMPLE_SCHEMA,
+      form: VOLUNTEER_FORM,
+      initialValues: VOLUNTEER_INITAL_VALUES,
+      schema: VOLUNTEER_SCHEMA,
     };
   };
 

@@ -156,7 +156,7 @@ const EXAMPLE_HEALTH = [
   },
 ];
 
-export const EXAMPLE_FORM = [
+export const VOLUNTEER_FORM = [
   {
     id: 'personal-info',
     label: 'Personal Information',
@@ -174,7 +174,7 @@ export const EXAMPLE_FORM = [
   },
 ];
 
-export const EXAMPLE_SCHEMA = Yup.object().shape({
+export const VOLUNTEER_SCHEMA = Yup.object().shape({
   name: Yup.string().required('Please enter your name'),
   email: Yup.string()
     .required('Please enter your email')
@@ -198,7 +198,7 @@ export const EXAMPLE_SCHEMA = Yup.object().shape({
   travelledCovid: Yup.string().required('Please select an option'),
 });
 
-export const EXAMPLE_INITAL_VALUES = {
+export const VOLUNTEER_INITAL_VALUES = {
   name: '',
   email: '',
   phone: '',
