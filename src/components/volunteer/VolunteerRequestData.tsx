@@ -1,7 +1,8 @@
 import * as Yup from 'yup';
 import Style from '../formik/formikStyle.module.css';
+import { FieldOption, FormField, FormSection } from '../formik/types';
 
-const YES_NO_OPTIONS = [
+const YES_NO_OPTIONS: FieldOption[] = [
   {
     label: 'Yes',
     value: 'true',
@@ -12,7 +13,7 @@ const YES_NO_OPTIONS = [
   },
 ];
 
-const EXAMPLE_PERSONAL = [
+const EXAMPLE_PERSONAL: FormField[] = [
   {
     type: 'text',
     name: 'name',
@@ -64,7 +65,7 @@ const EXAMPLE_PERSONAL = [
   },
 ];
 
-const EXAMPLE_VOLUNTEERING = [
+const EXAMPLE_VOLUNTEERING: FormField[] = [
   {
     type: 'checkbox',
     name: 'offer',
@@ -129,7 +130,7 @@ const EXAMPLE_VOLUNTEERING = [
   },
 ];
 
-const EXAMPLE_HEALTH = [
+const EXAMPLE_HEALTH: FormField[] = [
   {
     type: 'radio',
     name: 'covid',
@@ -156,7 +157,7 @@ const EXAMPLE_HEALTH = [
   },
 ];
 
-export const VOLUNTEER_FORM = [
+export const VOLUNTEER_FORM: FormSection[] = [
   {
     id: 'personal-info',
     label: 'Personal Information',
