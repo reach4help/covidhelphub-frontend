@@ -1,5 +1,4 @@
 import * as Yup from 'yup';
-import Style from '../formik/formikStyle.module.css';
 import { FieldOption, FormField, FormSection } from '../formik/types';
 
 const YES_NO_OPTIONS: FieldOption[] = [
@@ -46,7 +45,7 @@ const EXAMPLE_PERSONAL: FormField[] = [
     label: 'Postal Code',
     required: true,
     placeholder: 'Postal Code',
-    className: Style.zipcodeInput,
+    shortStyle: true,
   },
   {
     type: 'checkbox',
@@ -99,7 +98,7 @@ const EXAMPLE_VOLUNTEERING: FormField[] = [
     name: 'time',
     label: 'Time commitment per week (approximate):',
     placeholder: 'Hours',
-    className: Style.hoursInput,
+    shortStyle: true,
   },
   {
     type: 'radio',

@@ -30,10 +30,7 @@ export type FormField = {
   options?: FieldOption[];
   placeholder?: string | number;
   required?: boolean;
-  className?: string;
-  pattern?: string;
-  min?: number;
-  max?: number;
+  shortStyle?: boolean;
 };
 
 export interface FormSection {
