@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { RequestModel } from '../../objectModel/RequestModel';
-import RequestService from '../../services/RequestService';
+// import { RequestModel } from '../../objectModel/RequestModel';
+// import RequestService from '../../services/RequestService';
 import { Link, useHistory, useParams } from 'react-router-dom';
 import StageService from '../../services/StageService';
 import { StageModel } from '../../objectModel/StageModel';
 
 const RequestListComponent = () => {
-  const [requests, setRequests] = useState([] as RequestModel[]);
+  // const [requests, setRequests] = useState([] as RequestModel[]);
   const [stages, setStages] = useState([] as StageModel[]);
   const history = useHistory();
   const { programCode, stageCode = "Open" } = useParams<{ programCode: string, stageCode: string }>();
@@ -14,8 +14,8 @@ const RequestListComponent = () => {
 
   useEffect(() => {
     async function getData() {
-      const requests = await RequestService.list();
-      setRequests(requests);
+      // const requests = await RequestService.list();
+      // setRequests(requests);
       const stages = await StageService.list()
       setStages(stages);
     }
