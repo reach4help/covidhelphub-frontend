@@ -1,8 +1,11 @@
-.getInvolved {
+.formikForm {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto;
 }
 
-.informationCategory {
+.formFieldHeader {
   font-family: Roboto;
   font-size: 24px;
   font-style: normal;
@@ -11,17 +14,6 @@
   letter-spacing: 0px;
   text-align: left;
   color: var(--gray1);
-}
-
-.volunteerForm {
-  display: flex;
-  flex-direction: column;
-  font-family: Roboto;
-}
-
-.formField {
-  display: flex;
-  flex-direction: column;
 }
 
 .formField label {
@@ -86,22 +78,23 @@
   font-weight: lighter;
 }
 
-.zipcodeInput, .hoursInput {
-  width: 151px;
-  margin-top: -5px;
+.formField .longInput * {
+  width: 100%;
 }
 
-.errorMessage {
-  display: flex;
-  flex-direction: column;
+.formField .shortInput * {
+  width: 150px;
+}
+
+.formField .errorMessage {
   color: red;
 }
 
-.errorMessage.textInput {
+.formField .errorMessage.textInput {
   padding-top: 5px;
 }
 
-.submit {
+.formField .submit {
   height: 48px;
   width: 160px;
   border: none;
@@ -109,11 +102,11 @@
   background: #c4c4c4;
 }
 
-.submit:hover {
+.formField .submit:hover {
   background: #a5a5a5;
 }
 
-.submit:active {
+.formField .submit:active {
   color: #fafafa;
   background: #3d3d3d;
 }

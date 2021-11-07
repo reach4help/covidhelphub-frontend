@@ -18,7 +18,7 @@ function FormikComponent(props: Props) {
   const { formSections, initialValues, schema } = props;
 
   return (
-    <div className={Style.getInvolved}>
+    <div className={Style.formikForm}>
       <Formik
         initialValues={initialValues}
         validationSchema={schema}
@@ -27,10 +27,10 @@ function FormikComponent(props: Props) {
           setSubmitting(false);
         }}
       >
-        <Form className={Style.volunteerForm}>
+        <Form>
           {formSections.map((formSection) => (
             <div key={formSection.id} className={Style.formField}>
-              <h2 className={Style.informationCategory}>{formSection.label}</h2>
+              <h2 className={Style.formFieldHeader}>{formSection.label}</h2>
               <div>
                 {formSection.formFields.map((formField) => (
                   <FieldComponent key={formField.name} formField={formField} />
