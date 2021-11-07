@@ -17,18 +17,10 @@ function FieldComponent(props: Props) {
   const { formField } = props;
 
   if (textFieldSet.has(formField.type)) {
-    return (
-      <TextFieldComponent
-        formField={formField}
-      />
-    );
+    return <TextFieldComponent formField={formField} />;
   }
   if (checkRadioFieldSet.has(formField.type)) {
-    return (
-      <CheckRadioFieldComponent
-        formField={formField}
-      />
-    );
+    return <CheckRadioFieldComponent formField={formField} />;
   }
   return null;
 }
