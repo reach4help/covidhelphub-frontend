@@ -1,0 +1,112 @@
+.formikForm {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto;
+}
+
+.formFieldHeader {
+  font-family: Roboto;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0px;
+  text-align: left;
+  color: var(--gray1);
+}
+
+.formField label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.formField label span,
+.formField fieldset legend {
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0px;
+  text-align: left;
+  padding: 0;
+}
+
+.formField .requiredLabel:after {
+  color: red;
+  content: "*";
+  padding-left: 2px;
+}
+
+.formField label input,
+.formField label select {
+  background: #fafafa;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  max-width: 514px;
+  padding: 5px 10px;
+  height: 30px;
+}
+
+.formField fieldset {
+  border: none;
+  margin: 0px 0px 16px 0px;
+  padding: 5px 0px 5px 0px;
+}
+
+.formField fieldset label {
+  margin: 0;
+}
+
+.formField fieldset .optionList {
+  padding: 2px 0px 5px 0px;
+}
+
+.formField fieldset .option {
+  display: flex;
+  flex-direction: row;
+  padding: 1px 0px;
+}
+
+.formField fieldset .option input {
+  margin: -5px 10px 0px 5px;
+}
+
+.formField fieldset .option span {
+  font-weight: lighter;
+}
+
+.formField .longInput * {
+  width: 100%;
+}
+
+.formField .shortInput * {
+  width: 150px;
+}
+
+.formField .errorMessage {
+  color: red;
+}
+
+.formField .errorMessage.textInput {
+  padding-top: 5px;
+}
+
+.formField .submit {
+  height: 48px;
+  width: 160px;
+  border: none;
+  border-radius: 10px;
+  background: #c4c4c4;
+}
+
+.formField .submit:hover {
+  background: #a5a5a5;
+}
+
+.formField .submit:active {
+  color: #fafafa;
+  background: #3d3d3d;
+}

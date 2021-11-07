@@ -1,4 +1,7 @@
 export class RequestModel {
+  // TODO: make real program code
+  programCode: string;
+
   // allows to access attribute using brackets, e.g. request['address']
   // [index: string]: any;
   // 1- personal properties
@@ -35,6 +38,8 @@ export class RequestModel {
   // constructor methode
   constructor(
     request: {
+      programCode: string;
+
       name: string;
       address: string;
       zipcode: string; // zip code can contain letters
@@ -66,6 +71,8 @@ export class RequestModel {
 
     }
   ) {
+    this.programCode = request.programCode;
+
     this.name = request.name;
     this.address = request.address;
     this.zipcode = request.zipcode;

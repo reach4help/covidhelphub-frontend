@@ -1,7 +1,7 @@
 import { RequestModel } from '../objectModel/RequestModel';
 
 class RequestService {
-  static emptyRequestJson = '';
+  static emptyRequestJson = '{ "requests": [] }';
 
   static async create(request: RequestModel) {
     const requestsFromStorage = localStorage.getItem('requests') || RequestService.emptyRequestJson;
