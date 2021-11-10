@@ -2,13 +2,16 @@ import React from 'react'
 import Style from './FormSuccess.module.css'
 const FormSubmitted = () => {
     return (
-        <div>
-          <div className={Style.card}>
-            <div className={Style.Dcard}>
-              <i className="checkmark">✓</i>
+        <div className={Style.body}>
+          <div className={Style.p}>
+            <div className={Style.box}>
+            <div className={Style.checkmarkCircle}>
+              <i className={Style.checkmark}>✓</i>
             </div>
             <h1>Success</h1> 
-              <p>Your Form has been submitted sucessfully<br/> we'll be in touch shortly!</p>
+              <p>Your form has been submitted successfully.</p>
+              <p>We'll be in touch shortly!</p>
+          </div>
           </div>
         </div>
     )

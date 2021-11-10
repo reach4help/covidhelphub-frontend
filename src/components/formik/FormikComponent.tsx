@@ -1,7 +1,7 @@
 import React from "react";
 import * as Yup from "yup";
 import { AnyObject } from "yup/lib/types";
-import { Link,useHistory,Router} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Style from "./formikStyle.module.css";
 import FieldComponent from "./fieldComponents/FieldComponent";
 import { Formik, Form } from "formik";
@@ -16,7 +16,7 @@ interface Props {
 
 function FormikComponent(props: Props) {
   const { formSections, initialValues, schema } = props;
-  let history = useHistory();
+  const history = useHistory();
 
   return (
     <div className={Style.formikForm}>
