@@ -1,3 +1,11 @@
+import { string } from "yup/lib/locale";
+
+/**
+ * changes by Neck (Nov 12, 2021) 
+ * Added select to the textFieldSet
+ * Added 'list' to the FormField
+ */
+
 export const textFieldSet = new Set([
   'color',
   'date',
@@ -11,6 +19,7 @@ export const textFieldSet = new Set([
   'time',
   'url',
   'week',
+  'select'
 ]);
 
 export const checkRadioFieldSet = new Set(['checkbox', 'radio']);
@@ -28,6 +37,7 @@ export type FormField = {
   name: string;
   label: string;
   options?: FieldOption[];
+  list?: string[];
   placeholder?: string | number;
   required?: boolean;
   shortStyle?: boolean;

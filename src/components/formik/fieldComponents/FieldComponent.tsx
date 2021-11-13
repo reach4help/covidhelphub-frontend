@@ -8,6 +8,8 @@ import {
 import CheckRadioFieldComponent from './CheckRadioFieldComponent';
 import TextFieldComponent from './TextFieldComponent';
 
+// TODO: create select component for selecting from a list of options and import it here
+import SelectComponent from './SelectComponent'
 
 interface Props {
   formField: FormField;
@@ -15,6 +17,8 @@ interface Props {
 
 function FieldComponent(props: Props) {
   const { formField } = props;
+
+  // TODO: check if you have select type
 
   if (textFieldSet.has(formField.type)) {
     return <TextFieldComponent formField={formField} />;
