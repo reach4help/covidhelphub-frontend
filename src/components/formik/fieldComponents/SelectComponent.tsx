@@ -9,6 +9,7 @@ interface Props {
 
 function SelectComponent(props: Props) {
     const { formField } = props;
+    // console.log(formField)
     return (
         <>
             <label>
@@ -17,7 +18,7 @@ function SelectComponent(props: Props) {
                 </span>
                 <span className={formField.shortStyle ? Style.shortInput : Style.longInput}>
 
-                    <Field as="select">
+                    <Field as="select" name={formField.name}>
                         {
                             formField.list?.map((item, index) => <option key={index} value={item}>{item}</option>)
                         }

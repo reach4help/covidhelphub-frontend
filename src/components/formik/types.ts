@@ -1,11 +1,3 @@
-import { string } from "yup/lib/locale";
-
-/**
- * changes by Neck (Nov 12, 2021) 
- * Added select to the textFieldSet
- * Added 'list' to the FormField
- */
-
 // input fields
 export const textFieldSet = new Set([
   'color',
