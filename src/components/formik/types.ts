@@ -6,6 +6,7 @@ import { string } from "yup/lib/locale";
  * Added 'list' to the FormField
  */
 
+// input fields
 export const textFieldSet = new Set([
   'color',
   'date',
@@ -19,12 +20,16 @@ export const textFieldSet = new Set([
   'time',
   'url',
   'week',
-  'select'
 ]);
 
+// checkbox and radio
 export const checkRadioFieldSet = new Set(['checkbox', 'radio']);
 
+// checkbox
 export const multiFieldSet = new Set(['checkbox']);
+
+// select
+export const selectFieldSet = new Set(['select'])
 
 export interface FieldOption {
   label: string;

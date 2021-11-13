@@ -2,6 +2,7 @@ import React from 'react';
 import {
   textFieldSet,
   checkRadioFieldSet,
+  selectFieldSet,
   FormField,
 } from '../types';
 
@@ -18,13 +19,14 @@ interface Props {
 function FieldComponent(props: Props) {
   const { formField } = props;
 
-  // TODO: check if you have select type
-
   if (textFieldSet.has(formField.type)) {
     return <TextFieldComponent formField={formField} />;
   }
   if (checkRadioFieldSet.has(formField.type)) {
     return <CheckRadioFieldComponent formField={formField} />;
+  }
+  if (selectFieldSet.has(formField.type)) {
+    return <SelectComponent formField={formField} />;
   }
   return null;
 }
