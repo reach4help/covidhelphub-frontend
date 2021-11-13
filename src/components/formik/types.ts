@@ -1,4 +1,5 @@
 // input fields
+
 export const textFieldSet = new Set([
   'color',
   'date',
