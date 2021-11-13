@@ -58,7 +58,7 @@ const EXAMPLE_PERSONAL: FormField[] = [
         type: 'select',
         name: 'dob',
         label: 'How did you hear about us?',
-        list: ['Place 1', 'Place 2', 'Place 3']
+        list: ['', 'Place 1', 'Place 2', 'Place 3']
     },
 ];
 

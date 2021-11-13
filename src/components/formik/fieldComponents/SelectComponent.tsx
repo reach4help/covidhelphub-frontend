@@ -16,11 +16,12 @@ function SelectComponent(props: Props) {
                     {formField.label}
                 </span>
                 <span className={formField.shortStyle ? Style.shortInput : Style.longInput}>
-                    <Field
-                        type={formField.type}
-                        name={formField.name}
-                        placeholder={formField.placeholder}
-                    />
+
+                    <Field as="select">
+                        {
+                            formField.list?.map((item, index) => <option key={index} value={item}>{item}</option>)
+                        }
+                    </Field>
                 </span>
                 <div className={`${Style.errorMessage} ${Style.textInput}`}>
                     <ErrorMessage name={formField.name} />
