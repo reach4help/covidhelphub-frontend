@@ -41,9 +41,9 @@ const ProgramListComponent = function () {
 
   function revertPrograms() {
     async function getData() {
-      const programs = await ProgramService.list();
-      setPrograms(programs);
-      setProgramCount(programs.length);
+      const programData = await ProgramService.list();
+      setPrograms(programData);
+      setProgramCount(programData.length);
       setForceUpdateCount(forceUpdateCount + 1);
     }
     getData();
