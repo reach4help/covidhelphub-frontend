@@ -1,44 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { ProgramModel } from '../../objectModel/ProgramModel';
+import ProgramModel from '../../objectModel/ProgramModel';
 import ProgramService from '../../services/ProgramService';
 
-const ProgramListComponent = () => {
+const ProgramListComponent = function () {
   const [programs, setPrograms] = useState([] as ProgramModel[]);
   const [newProgramCode, setNewProgramCode] = useState('');
   const [programCount, setProgramCount] = useState(0);
   // forceUpdateCount used to update key of table row
   // If key is not changed, even though value of input field changes, React only refreshes
-  // new rows or reduces number of rows, but does not update 
+  // new rows or reduces number of rows, but does not update
   const [forceUpdateCount, setForceUpdateCount] = useState(0);
 
   useEffect(() => {
     async function getData() {
-      const programs = await ProgramService.list();
-      setPrograms(programs);
-      setProgramCount(programs.length);
+      const programData = await ProgramService.list();
+      setPrograms(programData);
+      setProgramCount(programData.count);
     }
     getData();
   }, []);
-
-  let ProgramLinks = {};
-
-  ProgramLinks = programs.map((program, i) => {
-    return (
-      <tr key={`item-${program.code}-${i}=${forceUpdateCount}`}>
-        <td>
-          <input
-            type="text"
-            defaultValue={program.code}
-            onChange={e => updateArrayRow(e, i)}
-          />
-        </td>
-        <td>
-          <button onClick={e => deleteArrayRow(i)}>Delete</button>
-        </td>
-      </tr>
-    );
-  });
-  // }
 
   function addProgramToArray() {
     programs.push(new ProgramModel(newProgramCode));
@@ -78,9 +58,31 @@ const ProgramListComponent = () => {
     await ProgramService.saveMany(programs);
   }
 
+  let ProgramLinks = {};
+
+  ProgramLinks = programs.map((program, i) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <tr key={`item-${program.code}-${i}=${forceUpdateCount}`}>
+      <td>
+        <input
+          type="text"
+          defaultValue={program.code}
+          onChange={(e) => updateArrayRow(e, i)}
+        />
+      </td>
+      <td>
+        <button type="button" onClick={() => deleteArrayRow(i)}>Delete</button>
+      </td>
+    </tr>
+  ));
+
   return (
     <div>
-      <p>Count: {programCount}</p>
+      <p>
+        Count:
+        {' '}
+        {programCount}
+      </p>
       <table className="">
         <thead>
           <tr>
@@ -94,16 +96,16 @@ const ProgramListComponent = () => {
       <div>
         <input
           key={`addnewprogramvalue-${forceUpdateCount}`}
-          aria-label={'Value for new program'}
+          aria-label="Value for new program"
           type="text"
           defaultValue={newProgramCode}
-          onChange={e => refreshNewProgramCode(e)}
+          onChange={(e) => refreshNewProgramCode(e)}
         />
-        <button onClick={addProgramToArray}>Add Item</button>
+        <button type="button" onClick={addProgramToArray}>Add Item</button>
       </div>
       <br />
-      <button onClick={savePrograms}>Save</button>
-      <button onClick={revertPrograms}>Revert</button>
+      <button type="button" onClick={savePrograms}>Save</button>
+      <button type="button" onClick={revertPrograms}>Revert</button>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { ProgramModel } from '../objectModel/ProgramModel';
+import ProgramModel from '../objectModel/ProgramModel';
 
 class ProgramService {
   static async saveMany(programs: ProgramModel[]) {

@@ -1,4 +1,4 @@
-export class RequestModel {
+export default class RequestModel {
   // TODO: make real program code
   programCode: string;
 
@@ -6,33 +6,51 @@ export class RequestModel {
   // [index: string]: any;
   // 1- personal properties
   name: string;
+
   address: string;
+
   zipcode: string;
+
   email: string;
+
   phone: string;
+
   dob: Date; // date of birth
+
   reference: string; // how did you hear about us?
 
   // 2- health details properties
   weakImuneSystem: string; // Do you have weakened Immune System?
+
   chronicIllness: string; // Do you have Chronic Illness?
+
   livingAlone: string; // Do you live alone with limited support network?
+
   sickWithCovid: string; // Are you currently sick or with Covid-19 symptoms?
-  beneficiariesText: string; // If you would like to explain your situation, or would like to share more details, please write it here.
+
+  beneficiariesText: string;
 
   // 3- program details
   vaccination: boolean;
+
   wellnessCalls: boolean;
+
   groceryDelivery: boolean;
 
-
   cannedAndPackagedGoods: { checked: boolean, value: string };
+
   freezerOrRefrigeratedGoods: { checked: boolean, value: string };
+
   fruitsAndVegetables: { checked: boolean, value: string };
+
   dairyAndEggs: { checked: boolean, value: string };
+
   meat: { checked: boolean, value: string };
+
   bread: { checked: boolean, value: string };
+
   yougurtTeaOrCoffee: { checked: boolean, value: string };
+
   miscellaneous: string;
 
   // constructor methode
@@ -69,7 +87,7 @@ export class RequestModel {
       yougurtTeaOrCoffee: { checked: boolean, value: string };
       miscellaneous: string;
 
-    }
+    },
   ) {
     this.programCode = request.programCode;
 
@@ -89,7 +107,7 @@ export class RequestModel {
     this.beneficiariesText = request.beneficiariesText;
 
     // program details
-    this.vaccination = request.vaccination
+    this.vaccination = request.vaccination;
     this.wellnessCalls = request.wellnessCalls;
     this.groceryDelivery = request.groceryDelivery;
 
