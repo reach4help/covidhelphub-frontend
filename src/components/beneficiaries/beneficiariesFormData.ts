@@ -78,21 +78,21 @@ const EXAMPLE_HEALTH: FormField[] = [
     {
         type: 'radio',
         name: 'chronicIllness',
-        label: 'Do you have Chronic Illness?',
+        label: 'Do you have a chronic illness?',
         required: true,
         options: YES_NO_OPTIONS,
     },
     {
         type: 'radio',
         name: 'livingAlone',
-        label: 'Do you live alone with limited support network?',
+        label: 'Do you live alone with a limited support network?',
         required: true,
         options: YES_NO_OPTIONS,
     },
     {
         type: 'radio',
         name: 'sickWithCovid',
-        label: 'Are you currently sick or with Covid-19 symptoms?',
+        label: 'Are you currently sick or experiencing Covid-19 symptoms?',
         required: true,
         options: YES_NO_OPTIONS,
     },
@@ -103,7 +103,7 @@ const EXAMPLE_HEALTH: FormField[] = [
         placeholder: 'Miscellaneous',
     },
 ];
-
+// beneficiaries
 const EXAMPLE_PROGRAM_DETAILS: FormField[] = [
     {
         type: 'checkbox',
@@ -164,7 +164,7 @@ const EXAMPLE_PROGRAM_DETAILS: FormField[] = [
 ];
 
 
-export const VOLUNTEER_FORM: FormSection[] = [
+export const BENEFICIARIES_FORM: FormSection[] = [
     {
         id: 'personal-info',
         label: 'Personal Details',
@@ -183,7 +183,7 @@ export const VOLUNTEER_FORM: FormSection[] = [
 
 ];
 
-export const VOLUNTEER_SCHEMA = Yup.object().shape({
+export const BENEFICIARIES_SCHEMA = Yup.object().shape({
     name: Yup.string().required('Please enter your name'),
     email: Yup.string()
         .required('Please enter your email')
@@ -207,7 +207,7 @@ export const VOLUNTEER_SCHEMA = Yup.object().shape({
     travelledCovid: Yup.string().required('Please select an option'),
 });
 
-export const VOLUNTEER_INITAL_VALUES = {
+export const BENEFICIARIES_INITAL_VALUES = {
     name: '',
     email: '',
     phone: '',

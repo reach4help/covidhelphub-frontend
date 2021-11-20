@@ -1,7 +1,7 @@
 import {
-    VOLUNTEER_FORM,
-    VOLUNTEER_INITAL_VALUES,
-    VOLUNTEER_SCHEMA,
+    BENEFICIARIES_FORM,
+    BENEFICIARIES_INITAL_VALUES,
+    BENEFICIARIES_SCHEMA,
 } from "./beneficiariesFormData";
 import FormikComponent from "../formik/FormikComponent";
 
@@ -12,9 +12,9 @@ function BeneficiariesFormComponent() {
      */
     const getData = () => {
         return {
-            form: VOLUNTEER_FORM,
-            initialValues: VOLUNTEER_INITAL_VALUES,
-            schema: VOLUNTEER_SCHEMA,
+            form: BENEFICIARIES_FORM,
+            initialValues: BENEFICIARIES_INITAL_VALUES,
+            schema: BENEFICIARIES_SCHEMA,
         };
     };
 
