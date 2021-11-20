@@ -34,7 +34,6 @@ export type FormField = {
   name: string;
   label: string;
   options?: FieldOption[];
-  list?: string[];
   placeholder?: string | number;
   required?: boolean;
   shortStyle?: boolean;

@@ -20,7 +20,7 @@ function SelectComponent(props: Props) {
 
                     <Field as="select" name={formField.name}>
                         {
-                            formField.list?.map((item, index) => <option key={index} value={item}>{item}</option>)
+                            formField.options?.map((item, index) => <option key={index} value={item.value}>{item.label}</option>)
                         }
                     </Field>
                 </span>

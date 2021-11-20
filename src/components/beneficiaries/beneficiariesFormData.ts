@@ -56,9 +56,14 @@ const EXAMPLE_PERSONAL: FormField[] = [
     },
     {
         type: 'select',
-        name: 'myselector',
+        name: 'acquisition',
         label: 'How did you hear about us?',
-        list: ['', 'Place 1', 'Place 2', 'Place 3']
+        options: [
+            { label: '', value: '' },
+            { label: 'Place 1', value: 'Place One' },
+            { label: 'Place 2', value: 'Place Two' },
+            { label: 'Place 3', value: 'Place Three' },
+        ]
     },
 ];
 
