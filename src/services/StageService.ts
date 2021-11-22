@@ -1,4 +1,4 @@
-import { StageModel } from '../objectModel/StageModel';
+import StageModel from '../objectModel/StageModel';
 
 class StageService {
   // static async saveMany(stages: StageModel[]) {

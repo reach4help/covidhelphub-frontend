@@ -1,7 +1,8 @@
 // CheckboxWithLabel.js
 import React, { useState } from 'react';
 
-const CheckboxWithLabel = ({ labelOn, labelOff }: { labelOn: string, labelOff: string }) => {
+// eslint-disable-next-line func-names
+const CheckboxWithLabel = function ({ labelOn, labelOff }: { labelOn: string, labelOff: string }) {
   const [isChecked, setIsChecked] = useState(false);
 
   const onChange = () => {

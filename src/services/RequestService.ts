@@ -1,4 +1,4 @@
-import { RequestModel } from '../objectModel/RequestModel';
+import RequestModel from '../objectModel/RequestModel';
 
 class RequestService {
   static emptyRequestJson = '{ "requests": [] }';
@@ -11,8 +11,7 @@ class RequestService {
   }
 
   static async list() {
-    const requestsFromStorage =
-      localStorage.getItem('requests') || RequestService.emptyRequestJson;
+    const requestsFromStorage = localStorage.getItem('requests') || RequestService.emptyRequestJson;
     const requestsJson = JSON.parse(requestsFromStorage);
     return requestsJson.requests;
   }

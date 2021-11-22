@@ -6,7 +6,8 @@ const STATUS = {
   NORMAL: 'normal',
 };
 
-const Link = ({ page, children }: { page: any, children: any }) => {
+// eslint-disable-next-line func-names
+const Link = function ({ page, children }: { page: any, children: any }) {
   const [status, setStatus] = useState(STATUS.NORMAL);
 
   const onMouseEnter = () => {
