@@ -196,15 +196,15 @@ export const BENEFICIARIES_SCHEMA = Yup.object().shape({
             /[a-zA-Z][0-9][a-zA-Z] ?[a-zA-Z][0-9][a-zA-Z]|([a-zA-Z]{2})?[0-9]{5}/,
             'Please enter a valid Postal code or Zip code',
         ),
-    languages: Yup.array(),
-    offer: Yup.array().min(1, 'Please check at least one option'),
-    time: Yup.number()
-        .min(0)
-        .max(168),
-    license: Yup.string(),
+
+    dob: Yup.string().required('Please select your date of birth'),
     covid: Yup.string().required('Please select an option'),
-    contactedCovid: Yup.string().required('Please select an option'),
-    travelledCovid: Yup.string().required('Please select an option'),
+    helpType: Yup.string().required('Please select an option'),
+    weakImuneSystem: Yup.string().required('Please select an option'),
+    chronicIllness: Yup.string().required('Please select an option'),
+    livingAlone: Yup.string().required('Please select an option'),
+    sickWithCovid: Yup.string().required('Please select an option'),
+
 });
 
 export const BENEFICIARIES_INITAL_VALUES = {
@@ -213,4 +213,11 @@ export const BENEFICIARIES_INITAL_VALUES = {
     phone: '',
     address: '',
     postal: '',
+    dob: '',
+    covid: '',
+    helpType: '',
+    weakImuneSystem: '',
+    chronicIllness: '',
+    livingAlone: '',
+    sickWithCovid: '',
 };
