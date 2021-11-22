@@ -12,6 +12,7 @@ function BeneficiariesFormComponent() {
      */
     const getData = () => {
         return {
+            name: 'Beneficiaries form',
             form: BENEFICIARIES_FORM,
             initialValues: BENEFICIARIES_INITAL_VALUES,
             schema: BENEFICIARIES_SCHEMA,

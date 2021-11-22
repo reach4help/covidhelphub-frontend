@@ -71,7 +71,7 @@ const EXAMPLE_HEALTH: FormField[] = [
     {
         type: 'radio',
         name: 'weakImuneSystem',
-        label: 'Do you have weakened Immune System?',
+        label: 'Do you have a weakened immune system?',
         required: true,
         options: YES_NO_OPTIONS,
     },
@@ -213,11 +213,4 @@ export const BENEFICIARIES_INITAL_VALUES = {
     phone: '',
     address: '',
     postal: '',
-    languages: [],
-    offer: [],
-    time: '',
-    license: '',
-    covid: '',
-    contactedCovid: '',
-    travelledCovid: '',
 };
