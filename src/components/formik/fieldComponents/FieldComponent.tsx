@@ -8,8 +8,6 @@ import {
 
 import CheckRadioFieldComponent from './CheckRadioFieldComponent';
 import TextFieldComponent from './TextFieldComponent';
-
-// TODO: create select component for selecting from a list of options and import it here
 import SelectComponent from './SelectComponent'
 
 interface Props {

@@ -2,7 +2,6 @@ import React from "react";
 import Style from "../formikStyle.module.css";
 import { FormField } from "../types";
 import { Field, ErrorMessage } from "formik";
-
 interface Props {
     formField: FormField;
 }
@@ -17,7 +16,6 @@ function SelectComponent(props: Props) {
                     {formField.label}
                 </span>
                 <span className={formField.shortStyle ? Style.shortInput : Style.longInput}>
-
                     <Field as="select" name={formField.name}>
                         {
                             formField.options?.map((item, index) => <option key={index} value={item.value}>{item.label}</option>)
