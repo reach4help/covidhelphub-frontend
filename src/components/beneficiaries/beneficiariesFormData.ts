@@ -103,7 +103,7 @@ const EXAMPLE_HEALTH: FormField[] = [
         placeholder: 'Miscellaneous',
     },
 ];
-// beneficiaries
+
 const EXAMPLE_PROGRAM_DETAILS: FormField[] = [
     {
         type: 'checkbox',
@@ -163,7 +163,6 @@ const EXAMPLE_PROGRAM_DETAILS: FormField[] = [
     },
 ];
 
-
 export const BENEFICIARIES_FORM: FormSection[] = [
     {
         id: 'personal-info',
@@ -199,7 +198,7 @@ export const BENEFICIARIES_SCHEMA = Yup.object().shape({
 
     dob: Yup.string().required('Please select your date of birth'),
     covid: Yup.string().required('Please select an option'),
-    helpType: Yup.string().required('Please select an option'),
+    helpType: Yup.array().min(1, 'Please select at least one option'),
     weakImuneSystem: Yup.string().required('Please select an option'),
     chronicIllness: Yup.string().required('Please select an option'),
     livingAlone: Yup.string().required('Please select an option'),
@@ -215,7 +214,7 @@ export const BENEFICIARIES_INITAL_VALUES = {
     postal: '',
     dob: '',
     covid: '',
-    helpType: '',
+    helpType: [],
     weakImuneSystem: '',
     chronicIllness: '',
     livingAlone: '',
