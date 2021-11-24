@@ -187,11 +187,10 @@ export const VOLUNTEER_SCHEMA = Yup.object().shape({
       /[a-zA-Z][0-9][a-zA-Z] ?[a-zA-Z][0-9][a-zA-Z]|([a-zA-Z]{2})?[0-9]{5}/,
       'Please enter a valid Postal code or Zip code',
     ),
+  // eslint-disable-next-line react/forbid-prop-types
   languages: Yup.array(),
   offer: Yup.array().min(1, 'Please check at least one option'),
-  time: Yup.number()
-    .min(0)
-    .max(168),
+  time: Yup.number().min(0).max(168),
   license: Yup.string(),
   covid: Yup.string().required('Please select an option'),
   contactedCovid: Yup.string().required('Please select an option'),

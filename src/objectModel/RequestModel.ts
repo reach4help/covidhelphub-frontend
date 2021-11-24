@@ -37,58 +37,55 @@ export default class RequestModel {
 
   groceryDelivery: boolean;
 
-  cannedAndPackagedGoods: { checked: boolean, value: string };
+  cannedAndPackagedGoods: { checked: boolean; value: string };
 
-  freezerOrRefrigeratedGoods: { checked: boolean, value: string };
+  freezerOrRefrigeratedGoods: { checked: boolean; value: string };
 
-  fruitsAndVegetables: { checked: boolean, value: string };
+  fruitsAndVegetables: { checked: boolean; value: string };
 
-  dairyAndEggs: { checked: boolean, value: string };
+  dairyAndEggs: { checked: boolean; value: string };
 
-  meat: { checked: boolean, value: string };
+  meat: { checked: boolean; value: string };
 
-  bread: { checked: boolean, value: string };
+  bread: { checked: boolean; value: string };
 
-  yougurtTeaOrCoffee: { checked: boolean, value: string };
+  yougurtTeaOrCoffee: { checked: boolean; value: string };
 
   miscellaneous: string;
 
   // constructor methode
-  constructor(
-    request: {
-      programCode: string;
+  constructor(request: {
+    programCode: string;
 
-      name: string;
-      address: string;
-      zipcode: string; // zip code can contain letters
-      email: string;
-      phone: string;
-      dob: Date; // date of birth
-      reference: string; // how did you hear about us?
+    name: string;
+    address: string;
+    zipcode: string; // zip code can contain letters
+    email: string;
+    phone: string;
+    dob: Date; // date of birth
+    reference: string; // how did you hear about us?
 
-      // health details properties
-      weakImuneSystem: string;
-      chronicIllness: string;
-      livingAlone: string;
-      sickWithCovid: string;
-      beneficiariesText: string;
+    // health details properties
+    weakImuneSystem: string;
+    chronicIllness: string;
+    livingAlone: string;
+    sickWithCovid: string;
+    beneficiariesText: string;
 
-      // program details
-      vaccination: boolean;
-      wellnessCalls: boolean;
-      groceryDelivery: boolean;
+    // program details
+    vaccination: boolean;
+    wellnessCalls: boolean;
+    groceryDelivery: boolean;
 
-      cannedAndPackagedGoods: { checked: boolean, value: string };
-      freezerOrRefrigeratedGoods: { checked: boolean, value: string };
-      fruitsAndVegetables: { checked: boolean, value: string };
-      dairyAndEggs: { checked: boolean, value: string };
-      meat: { checked: boolean, value: string };
-      bread: { checked: boolean, value: string };
-      yougurtTeaOrCoffee: { checked: boolean, value: string };
-      miscellaneous: string;
-
-    },
-  ) {
+    cannedAndPackagedGoods: { checked: boolean; value: string };
+    freezerOrRefrigeratedGoods: { checked: boolean; value: string };
+    fruitsAndVegetables: { checked: boolean; value: string };
+    dairyAndEggs: { checked: boolean; value: string };
+    meat: { checked: boolean; value: string };
+    bread: { checked: boolean; value: string };
+    yougurtTeaOrCoffee: { checked: boolean; value: string };
+    miscellaneous: string;
+  }) {
     this.programCode = request.programCode;
 
     this.name = request.name;

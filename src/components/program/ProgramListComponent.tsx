@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ProgramModel from '../../objectModel/ProgramModel';
 import ProgramService from '../../services/ProgramService';
 
-const ProgramListComponent = function () {
+function ProgramListComponent() {
   const [programs, setPrograms] = useState([] as ProgramModel[]);
   const [newProgramCode, setNewProgramCode] = useState('');
   const [programCount, setProgramCount] = useState(0);
@@ -71,7 +71,9 @@ const ProgramListComponent = function () {
         />
       </td>
       <td>
-        <button type="button" onClick={() => deleteArrayRow(i)}>Delete</button>
+        <button type="button" onClick={() => deleteArrayRow(i)}>
+          Delete
+        </button>
       </td>
     </tr>
   ));
@@ -80,7 +82,6 @@ const ProgramListComponent = function () {
     <div>
       <p>
         Count:
-        {' '}
         {programCount}
       </p>
       <table className="">
@@ -101,13 +102,19 @@ const ProgramListComponent = function () {
           defaultValue={newProgramCode}
           onChange={(e) => refreshNewProgramCode(e)}
         />
-        <button type="button" onClick={addProgramToArray}>Add Item</button>
+        <button type="button" onClick={addProgramToArray}>
+          Add Item
+        </button>
       </div>
       <br />
-      <button type="button" onClick={savePrograms}>Save</button>
-      <button type="button" onClick={revertPrograms}>Revert</button>
+      <button type="button" onClick={savePrograms}>
+        Save
+      </button>
+      <button type="button" onClick={revertPrograms}>
+        Revert
+      </button>
     </div>
   );
-};
+}
 
 export default ProgramListComponent;

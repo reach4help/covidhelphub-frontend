@@ -1,13 +1,8 @@
 import React from 'react';
-import {
-  textFieldSet,
-  checkRadioFieldSet,
-  FormField,
-} from '../types';
+import { textFieldSet, checkRadioFieldSet, FormField } from '../types';
 
 import CheckRadioFieldComponent from './CheckRadioFieldComponent';
 import TextFieldComponent from './TextFieldComponent';
-
 
 interface Props {
   formField: FormField;

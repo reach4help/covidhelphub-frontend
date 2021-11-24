@@ -1,12 +1,12 @@
-import React from "react";
-import * as Yup from "yup";
-import { AnyObject } from "yup/lib/types";
-import { useHistory } from "react-router-dom";
-import Style from "./formikStyle.module.css";
-import FieldComponent from "./fieldComponents/FieldComponent";
-import { Formik, Form } from "formik";
-import { FormSection } from "./types";
-
+/* eslint-disable no-console */
+import React from 'react';
+import * as Yup from 'yup';
+import { AnyObject } from 'yup/lib/types';
+import { useHistory } from 'react-router-dom';
+import { Formik, Form } from 'formik';
+import Style from './formikStyle.module.css';
+import FieldComponent from './fieldComponents/FieldComponent';
+import { FormSection } from './types';
 
 interface Props {
   formSections: FormSection[];
@@ -25,7 +25,7 @@ function FormikComponent(props: Props) {
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
-          history.push("/submitted");
+          history.push('/submitted');
           setSubmitting(false);
         }}
       >
@@ -40,9 +40,9 @@ function FormikComponent(props: Props) {
               </div>
             </div>
           ))}
-        <button type="submit" className={Style.submit}>
+          <button type="submit" className={Style.submit}>
             Submit
-          </button>       
+          </button>
         </Form>
       </Formik>
     </div>

@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  cleanup,
-  fireEvent,
-  render,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import ProgramListComponent from '../components/program/ProgramListComponent';
 
 // Note: running cleanup afterEach is done for you in @testing-library/react@9.0.0 or higher
@@ -12,7 +8,7 @@ afterEach(cleanup);
 
 it('Program List - add program', async () => {
   const { getByText, getByDisplayValue, getByLabelText } = render(
-    <ProgramListComponent />,
+    <ProgramListComponent />
   );
   const button = getByText(/add item/i);
   const input = getByLabelText('Value for new program');

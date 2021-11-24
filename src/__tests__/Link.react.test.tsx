@@ -8,7 +8,7 @@ const { act } = renderer;
 test('Link changes the class when hovered', () => {
   const component = renderer.create(
     // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    <Link page="http://www.facebook.com">Facebook</Link>,
+    <Link page='http://www.facebook.com'>Facebook</Link>
   );
   let tree: any = component.toJSON();
   expect(tree).toMatchSnapshot();

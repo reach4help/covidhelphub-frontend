@@ -1,7 +1,9 @@
+/* eslint-disable jsx-a11y/label-has-for */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
+import { Field, ErrorMessage } from 'formik';
 import Style from '../formikStyle.module.css';
 import { FormField } from '../types';
-import { Field, ErrorMessage } from 'formik';
 
 interface Props {
   formField: FormField;
@@ -15,7 +17,7 @@ function CheckRadioFieldComponent(props: Props) {
         {formField.label}
       </legend>
       <div className={Style.optionList}>
-        {formField.options?.map(option => (
+        {formField.options?.map((option) => (
           <label key={option.value}>
             <div className={Style.option}>
               <Field

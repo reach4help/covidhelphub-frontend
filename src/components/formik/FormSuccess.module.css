@@ -1,31 +1,31 @@
-      .body {
-        text-align: center;
-        padding: 40px 0;
-        background: #EBF0F5;
-      }
-      .p {
-          font-size:20px;
-          margin: 0;
-      }
-      .checkmark {
-        color: #9ABC66;
-        font-size: 100px;
-        line-height: 200px;
-        margin-left:-15px;
-      }
-      .box {
-        background: white;
-        padding: 60px;
-        border-radius: 4px;
-        box-shadow: 0.1px 0 2px 3px #ece8e8;
-        display: inline-block;
-        margin: 0 auto;
-      }
+.body {
+  text-align: center;
+  padding: 40px 0;
+  background: #ebf0f5;
+}
+.p {
+  font-size: 20px;
+  margin: 0;
+}
+.checkmark {
+  color: #9abc66;
+  font-size: 100px;
+  line-height: 200px;
+  margin-left: -15px;
+}
+.box {
+  background: white;
+  padding: 60px;
+  border-radius: 4px;
+  box-shadow: 0.1px 0 2px 3px #ece8e8;
+  display: inline-block;
+  margin: 0 auto;
+}
 
-      .checkmarkCircle {
-        border-radius:200px; 
-        height:200px; 
-        width:200px;
-        background: #f0f1ef;
-        margin:0 auto;
-      }
+.checkmarkCircle {
+  border-radius: 200px;
+  height: 200px;
+  width: 200px;
+  background: #f0f1ef;
+  margin: 0 auto;
+}
