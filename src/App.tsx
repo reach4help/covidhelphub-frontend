@@ -17,8 +17,7 @@ import FormSubmitted from './components/formik/FormSuccess';
 function App() {
   const NavBar = NavBarFunc();
   // console.log(NavBar)
-  // TODO: rethink lines for request/list with multiple parameters - combine?
-
+  // TODO: rethink lines for request/list with multiple parameters 
   return (
 
     <div>
