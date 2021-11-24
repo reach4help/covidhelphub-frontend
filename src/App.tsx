@@ -20,6 +20,7 @@ function App() {
   // TODO: rethink lines for request/list with multiple parameters - combine?
 
   return (
+
     <div>
       <nav className='navbar'>
         <NavBar />
