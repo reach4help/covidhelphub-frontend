@@ -1,3 +1,5 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable jsx-quotes */
 import React from 'react';
 
 import { Switch, Route } from 'react-router-dom';
@@ -17,17 +19,16 @@ import FormSubmitted from './components/formik/FormSuccess';
 function App() {
   const NavBar = NavBarFunc();
   // console.log(NavBar)
-  // TODO: rethink lines for request/list with multiple parameters 
+  // TODO: rethink lines for request/list with multiple parameters
   return (
-
     <div>
       <nav className='navbar'>
         <NavBar />
       </nav>
 
-      <div className="container mt-3">
+      <div className='container mt-3'>
         <Switch>
-          <Route exact path="/" component={HomeComponent} />
+          <Route exact path='/' component={HomeComponent} />
           <Route
             path='/request/list/:programCode/:stageCode'
             component={RequestListComponent}
@@ -39,22 +40,21 @@ function App() {
           {/* <Route exact path="/request/list" component={ProgramRequestSelection} /> */}
           <Route
             exact
-            path="/request/list"
+            path='/request/list'
             component={RequestCreateComponent}
           />
           {/* <Route exact path="/request/create" component={RequestCreateComponent} /> */}
-          <Route exact path="/program/list" component={ProgramListComponent} />
-          <Route exact path="/stage/list" component={StageListComponent} />
+          <Route exact path='/program/list' component={ProgramListComponent} />
+          <Route exact path='/stage/list' component={StageListComponent} />
           {/* <Route exact path="/beneficiaries/list" component={BeneficiariesComponent} /> */}
           <Route
             exact
-            path="/volunteer/list"
+            path='/volunteer/list'
             component={VolunteerFormComponent}
           />
-          <Route exact path="/submitted">
+          <Route exact path='/submitted'>
             {' '}
-            <FormSubmitted />
-            {' '}
+            <FormSubmitted />{' '}
           </Route>
           <Route component={HomeComponent} />
         </Switch>
