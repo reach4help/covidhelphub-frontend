@@ -21,7 +21,7 @@ function App() {
 
   return (
     <div>
-      <nav className="navbar">
+      <nav className='navbar'>
         <NavBar />
       </nav>
 
