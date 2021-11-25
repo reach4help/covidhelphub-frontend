@@ -23,18 +23,6 @@
     "src/**/*.tsx": [
       "yarn prettier:fix",
       "yarn lint"
-    ],
-    "src/*.ts": [
-      "yarn prettier:fix",
-      "yarn lint"
-    ],
-    "src/**/*.ts": [
-      "yarn prettier:fix",
-      "yarn lint"
-    ],
-    "src/*.tsx": [
-      "yarn prettier:fix",
-      "yarn lint"
     ]
   },
   "scripts": {
