@@ -20,7 +20,7 @@
     "yup": "^0.32.11"
   },
   "lint-staged": {
-    "src/*.tsx": [
+    "src/*.{ts,tsx}": [
       "yarn prettier:fix",
       "yarn lint"
     ],
