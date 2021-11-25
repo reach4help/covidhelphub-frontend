@@ -4,10 +4,7 @@
     "sourceMap": true,
     "outDir": "dist",
     "strict": true,
-    "lib": [
-      "esnext",
-      "DOM"
-    ],
+    "lib": ["esnext", "DOM"],
     "target": "es5",
     "allowJs": true,
     "skipLibCheck": true,
@@ -35,10 +32,5 @@
   "isolatedModules": true,
   "noEmit": true,
   "jsx": "react-jsx",
-  "include": [
-    "src/*.ts",
-    "src/*.tsx",
-    "src/**/*.ts",
-    "src/**/*.tsx"
-  ]
+  "include": ["*.tsx"]
 }
