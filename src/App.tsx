@@ -56,9 +56,9 @@ function App() {
             <FormSubmitted />{' '}
           </Route>
           <Route component={HomeComponent} />
-        </Switch >
-      </div >
-    </div >
+        </Switch>
+      </div>
+    </div>
   );
 }
 
