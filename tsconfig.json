@@ -32,5 +32,5 @@
   "isolatedModules": true,
   "noEmit": true,
   "jsx": "react-jsx",
-  "include": ["*.tsx"]
+  "include": ["*.ts*"]
 }
