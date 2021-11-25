@@ -24,11 +24,11 @@
       "yarn prettier:fix",
       "yarn lint"
     ],
-    "src/**/*.ts": [
+    "src/*.ts": [
       "yarn prettier:fix",
       "yarn lint"
     ],
-    "src/*.ts": [
+    "src/**/*.ts": [
       "yarn prettier:fix",
       "yarn lint"
     ],
