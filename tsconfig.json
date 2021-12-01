@@ -1,10 +1,24 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
     "sourceMap": true,
     "outDir": "dist",
     "strict": true,
-    "lib": ["esnext", "DOM"]
+    "lib": ["esnext", "DOM"],
+    "target": "es5",
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
   },
+  "buildOptions": "Content",
   "esModuleInterop": true,
   "target": "es5",
   "allowJs": true,
@@ -18,5 +32,5 @@
   "isolatedModules": true,
   "noEmit": true,
   "jsx": "react-jsx",
-  "include": ["src"]
+  "include": ["**/*.ts", "**/*.tsx"]
 }

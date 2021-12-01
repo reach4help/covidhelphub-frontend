@@ -8,7 +8,7 @@ import {
 
 import CheckRadioFieldComponent from './CheckRadioFieldComponent';
 import TextFieldComponent from './TextFieldComponent';
-import SelectComponent from './SelectComponent'
+import SelectComponent from './SelectComponent';
 
 interface Props {
   formField: FormField;

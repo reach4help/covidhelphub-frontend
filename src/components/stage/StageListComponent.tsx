@@ -1,43 +1,44 @@
+/* eslint-disable @typescript-eslint/no-use-before-define */
+/* eslint-disable react/button-has-type */
 import React, { useState, useEffect } from 'react';
 import StageService from '../../services/StageService';
-import { StageModel } from '../../objectModel/StageModel';
+import StageModel from '../../objectModel/StageModel';
 
-const StageListComponent = () => {
+function StageListComponent() {
   const [stages, setStages] = useState([] as StageModel[]);
   const [newStageCode, setNewStageCode] = useState('');
   const [stageCount, setStageCount] = useState(0);
   // forceUpdateCount used to update key of table row
   // If key is not changed, even though value of input field changes, React only refreshes
-  // new rows or reduces number of rows, but does not update 
+  // new rows or reduces number of rows, but does not update
   const [forceUpdateCount, setForceUpdateCount] = useState(0);
 
   useEffect(() => {
     async function getData() {
-      const stages = await StageService.list();
-      setStages(stages);
-      setStageCount(stages.length);
+      const stagesData = await StageService.list();
+      setStages(stagesData);
+      setStageCount(stagesData.length);
     }
     getData();
   }, []);
 
   let StageLinks = {};
 
-  StageLinks = stages.map((stage, i) => {
-    return (
-      <tr key={`item-${stage.code}-${i}=${forceUpdateCount}`}>
-        <td>
-          <input
-            type="text"
-            defaultValue={stage.code}
-            onChange={e => updateArrayRow(e, i)}
-          />
-        </td>
-        <td>
-          <button onClick={e => deleteArrayRow(i)}>Delete</button>
-        </td>
-      </tr>
-    );
-  });
+  StageLinks = stages.map((stage, i) => (
+    // eslint-disable-next-line react/no-array-index-key
+    <tr key={`item-${stage.code}-${i}=${forceUpdateCount}`}>
+      <td>
+        <input
+          type="text"
+          defaultValue={stage.code}
+          onChange={(e) => updateArrayRow(e, i)}
+        />
+      </td>
+      <td>
+        <button onClick={() => deleteArrayRow(i)}>Delete</button>
+      </td>
+    </tr>
+  ));
   // }
 
   function addStageToArray() {
@@ -61,9 +62,9 @@ const StageListComponent = () => {
 
   function revertStages() {
     async function getData() {
-      const stages = await StageService.list();
-      setStages(stages);
-      setStageCount(stages.length);
+      const stageData = await StageService.list();
+      setStages(stageData);
+      setStageCount(stageData.length);
       setForceUpdateCount(forceUpdateCount + 1);
     }
     getData();
@@ -80,7 +81,11 @@ const StageListComponent = () => {
 
   return (
     <div>
-      <p>Count: {stageCount}</p>
+      <p>
+        Count:
+        {' '}
+        {stageCount}
+      </p>
       <table className="">
         <thead>
           <tr>
@@ -94,10 +99,10 @@ const StageListComponent = () => {
       <div>
         <input
           key={`addnewstagevalue-${forceUpdateCount}`}
-          aria-label={'Value for new stage'}
+          aria-label="Value for new stage"
           type="text"
           defaultValue={newStageCode}
-          onChange={e => refreshNewStageCode(e)}
+          onChange={(e) => refreshNewStageCode(e)}
         />
         <button onClick={addStageToArray}>Add Item</button>
       </div>
@@ -106,6 +111,6 @@ const StageListComponent = () => {
       <button onClick={revertStages}>Revert</button>
     </div>
   );
-};
+}
 
 export default StageListComponent;

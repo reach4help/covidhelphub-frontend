@@ -11,9 +11,7 @@ afterEach(cleanup);
 
 it('CheckboxWithLabel changes the text after click', () => {
   // eslint-disable-next-line no-unused-vars
-  const { getByLabelText }: { getByLabelText: (value: RegExp) => HTMLElement } = render(
-    <CheckboxWithLabel labelOn="On" labelOff="Off" />,
-  );
+  const { getByLabelText }: { getByLabelText: (value: RegExp) => HTMLElement } = render(<CheckboxWithLabel labelOn="On" labelOff="Off" />);
 
   expect(getByLabelText(/off/i)).toBeTruthy();
 

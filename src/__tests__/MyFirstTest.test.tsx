@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  cleanup,
-  fireEvent,
-  render,
-} from '@testing-library/react';
+import { cleanup, fireEvent, render } from '@testing-library/react';
 import ProgramListComponent from '../components/program/ProgramListComponent';
 
 // Note: running cleanup afterEach is done for you in @testing-library/react@9.0.0 or higher
