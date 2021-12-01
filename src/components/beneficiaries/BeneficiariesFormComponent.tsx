@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   BENEFICIARIES_FORM,
-  BENEFICIARIES_INITAL_VALUES,
+  BENEFICIARIES_INITIAL_VALUES,
   BENEFICIARIES_SCHEMA,
 } from './beneficiariesFormData';
 import FormikComponent from '../formik/FormikComponent';
@@ -14,7 +14,7 @@ function BeneficiariesFormComponent() {
   const getData = () => ({
     name: 'Beneficiaries form',
     form: BENEFICIARIES_FORM,
-    initialValues: BENEFICIARIES_INITAL_VALUES,
+    initialValues: BENEFICIARIES_INITIAL_VALUES,
     schema: BENEFICIARIES_SCHEMA,
   });
 

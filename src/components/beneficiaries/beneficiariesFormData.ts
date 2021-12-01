@@ -204,7 +204,7 @@ export const BENEFICIARIES_SCHEMA = Yup.object().shape({
   sickWithCovid: Yup.string().required('Please select an option'),
 });
 
-export const BENEFICIARIES_INITAL_VALUES = {
+export const BENEFICIARIES_INITIAL_VALUES = {
   name: '',
   email: '',
   phone: '',
