@@ -8,7 +8,7 @@ afterEach(cleanup);
 
 it('Program List - add program', async () => {
   const { getByText, getByDisplayValue, getByLabelText } = render(
-    <ProgramListComponent />
+    <ProgramListComponent />,
   );
   const button = getByText(/add item/i);
   const input = getByLabelText('Value for new program');

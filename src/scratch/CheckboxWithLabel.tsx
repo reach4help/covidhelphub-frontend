@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 
 // eslint-disable-next-line func-names
-const CheckboxWithLabel = function ({
+function CheckboxWithLabel({
   labelOn,
   labelOff,
 }: {
@@ -17,10 +17,10 @@ const CheckboxWithLabel = function ({
 
   return (
     <label>
-      <input type='checkbox' checked={isChecked} onChange={onChange} />
+      <input type="checkbox" checked={isChecked} onChange={onChange} />
       {isChecked ? labelOn : labelOff}
     </label>
   );
-};
+}
 
 export default CheckboxWithLabel;

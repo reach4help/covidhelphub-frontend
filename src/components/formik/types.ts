@@ -21,7 +21,7 @@ export const checkRadioFieldSet = new Set(['checkbox', 'radio']);
 export const multiFieldSet = new Set(['checkbox']);
 
 // select
-export const selectFieldSet = new Set(['select'])
+export const selectFieldSet = new Set(['select']);
 
 export interface FieldOption {
   label: string;
