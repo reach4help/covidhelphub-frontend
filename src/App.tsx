@@ -6,12 +6,12 @@ import { Switch, Route } from 'react-router-dom';
 import HomeComponent from './components/HomeComponent';
 import ProgramListComponent from './components/program/ProgramListComponent';
 import RequestListComponent from './components/request/RequestListComponent';
-import RequestCreateComponent from './components/request/RequestCreateComponent';
 import StageListComponent from './components/stage/StageListComponent';
 
 import './globals.css';
 import NavBarFunc from './NavBarFunc';
 import VolunteerFormComponent from './components/volunteer/VolunteerFormComponent';
+import BeneficiariesFormComponent from './components/beneficiaries/BeneficiariesFormComponent';
 import FormSubmitted from './components/formik/FormSuccess';
 // import ProgramRequestSelection from './components/request/RequestProgramSelection';
 
@@ -37,11 +37,8 @@ function App() {
             component={RequestListComponent}
           />
           {/* <Route exact path="/request/list" component={ProgramRequestSelection} /> */}
-          <Route
-            exact
-            path="/request/list"
-            component={RequestCreateComponent}
-          />
+          {/* <Route exact path="/request/list" component={RequestCreateComponent} /> */}
+          <Route exact path="/request/list" component={BeneficiariesFormComponent} />
           {/* <Route exact path="/request/create" component={RequestCreateComponent} /> */}
           <Route exact path="/program/list" component={ProgramListComponent} />
           <Route exact path="/stage/list" component={StageListComponent} />
