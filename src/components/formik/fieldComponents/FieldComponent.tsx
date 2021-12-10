@@ -15,15 +15,11 @@ interface Props {
   formField: FormField;
 }
 
-function FieldComponentWrapper(component: JSX.Element | undefined) {
+function FieldComponentWrapper(component?: JSX.Element) {
   if (!component) {
     return null;
   }
-  return (
-    <div className={Style.formField}>
-      {component}
-    </div>
-  );
+  return <div className={Style.formField}>{component}</div>;
 }
 
 function FieldComponent(props: Props) {
@@ -35,14 +31,13 @@ function FieldComponent(props: Props) {
     component = <TextFieldComponent formField={formField} />;
   } else if (checkRadioFieldSet.has(formField.type)) {
     component = <CheckRadioFieldComponent formField={formField} />;
-  } else if (selectFieldSet.has(formField.type)) { return FieldComponentWrapper(component); }
-  if (selectFieldSet.has(formField.type)) {
-    return <SelectComponent formField={formField} />;
+  } else if (selectFieldSet.has(formField.type)) {
+    return FieldComponentWrapper(component);
   }
   if (selectFieldSet.has(formField.type)) {
-    return <SelectComponent formField={formField} />;
+    component = <SelectComponent formField={formField} />;
   }
-  return null;
+  return FieldComponentWrapper(component);
 }
 
 export default FieldComponent;
