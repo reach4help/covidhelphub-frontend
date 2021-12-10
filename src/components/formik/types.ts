@@ -37,10 +37,5 @@ export type FormField = {
   placeholder?: string | number;
   required?: boolean;
   shortStyle?: boolean;
+  sectionTitle?: string;
 };
-
-export interface FormSection {
-  id: string;
-  label: string;
-  formFields: FormField[];
-}
