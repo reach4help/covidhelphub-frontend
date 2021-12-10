@@ -27,7 +27,7 @@ function FormikComponent(props: Props) {
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
-          history.push('/submitted');
+          history.push(`${history.location.pathname}/submitted`);
           setSubmitting(false);
         }}
       >
