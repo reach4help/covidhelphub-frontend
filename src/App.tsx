@@ -38,14 +38,18 @@ function App() {
           />
           {/* <Route exact path="/request/list" component={ProgramRequestSelection} /> */}
           {/* <Route exact path="/request/list" component={RequestCreateComponent} /> */}
-          <Route exact path="/request/list" component={BeneficiariesFormComponent} />
+          <Route
+            exact
+            path="/beneficiaries/form"
+            component={BeneficiariesFormComponent}
+          />
           {/* <Route exact path="/request/create" component={RequestCreateComponent} /> */}
           <Route exact path="/program/list" component={ProgramListComponent} />
           <Route exact path="/stage/list" component={StageListComponent} />
           {/* <Route exact path="/beneficiaries/list" component={BeneficiariesComponent} /> */}
           <Route
             exact
-            path="/volunteer/list"
+            path="/volunteers/form"
             component={VolunteerFormComponent}
           />
           <Route exact path="/submitted">
