@@ -1,7 +1,7 @@
 import React from 'react';
 import Style from './FormSuccess.module.css';
 
-function FormSubmitted() {
+function FormSubmitComponent() {
   return (
     <div className={Style.body}>
       <div className={Style.p}>
@@ -11,11 +11,11 @@ function FormSubmitted() {
           </div>
           <h1>Success</h1>
           <p>Your form has been submitted successfully.</p>
-          <p>We wo;; be in touch shortly!</p>
+          <p>We will be in touch shortly!</p>
         </div>
       </div>
     </div>
   );
 }
 
-export default FormSubmitted;
+export default FormSubmitComponent;
