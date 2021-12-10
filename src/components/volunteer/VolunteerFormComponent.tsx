@@ -17,7 +17,7 @@ function VolunteerFormComponent() {
     schema: VOLUNTEER_SCHEMA,
   });
 
-  const { form: formSections, initialValues, schema } = getData();
+  const { form, initialValues, schema } = getData();
 
   return (
     <>
@@ -27,7 +27,7 @@ function VolunteerFormComponent() {
         volunteer form so we can start matching you with tasks.
       </p>
       <FormikComponent
-        formSections={formSections}
+        formFields={form}
         initialValues={initialValues}
         schema={schema}
       />

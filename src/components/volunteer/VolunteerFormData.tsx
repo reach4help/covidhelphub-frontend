@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { FieldOption, FormField, FormSection } from '../formik/types';
+import { FieldOption, FormField } from '../formik/types';
 
 const YES_NO_OPTIONS: FieldOption[] = [
   {
@@ -12,13 +12,14 @@ const YES_NO_OPTIONS: FieldOption[] = [
   },
 ];
 
-const EXAMPLE_PERSONAL: FormField[] = [
+export const VOLUNTEER_FORM: FormField[] = [
   {
     type: 'text',
     name: 'name',
     label: 'Full Name',
     required: true,
     placeholder: 'Full Name',
+    sectionTitle: 'Personal Information',
   },
   {
     type: 'email',
@@ -26,18 +27,21 @@ const EXAMPLE_PERSONAL: FormField[] = [
     label: 'Email',
     required: true,
     placeholder: 'Email',
+    sectionTitle: 'Personal Information',
   },
   {
     type: 'tel',
     name: 'phone',
     label: 'Phone Number',
     placeholder: 'Phone Number',
+    sectionTitle: 'Personal Information',
   },
   {
     type: 'text',
     name: 'address',
     label: 'Address',
     placeholder: 'Address',
+    sectionTitle: 'Personal Information',
   },
   {
     type: 'text',
@@ -46,6 +50,7 @@ const EXAMPLE_PERSONAL: FormField[] = [
     required: true,
     placeholder: 'Postal Code',
     shortStyle: true,
+    sectionTitle: 'Personal Information',
   },
   {
     type: 'checkbox',
@@ -61,10 +66,8 @@ const EXAMPLE_PERSONAL: FormField[] = [
         value: 'french',
       },
     ],
+    sectionTitle: 'Personal Information',
   },
-];
-
-const EXAMPLE_VOLUNTEERING: FormField[] = [
   {
     type: 'checkbox',
     name: 'offer',
@@ -92,6 +95,7 @@ const EXAMPLE_VOLUNTEERING: FormField[] = [
         value: 'tech',
       },
     ],
+    sectionTitle: 'Volunteering Information',
   },
   {
     type: 'number',
@@ -99,6 +103,7 @@ const EXAMPLE_VOLUNTEERING: FormField[] = [
     label: 'Time commitment per week (approximate):',
     placeholder: 'Hours',
     shortStyle: true,
+    sectionTitle: 'Volunteering Information',
   },
   {
     type: 'radio',
@@ -126,10 +131,8 @@ const EXAMPLE_VOLUNTEERING: FormField[] = [
         value: 'none',
       },
     ],
+    sectionTitle: 'Volunteering Information',
   },
-];
-
-const EXAMPLE_HEALTH: FormField[] = [
   {
     type: 'radio',
     name: 'covid',
@@ -137,6 +140,7 @@ const EXAMPLE_HEALTH: FormField[] = [
       'Are you currently sick with COVID-19 or experiencing any COVID-19 symptoms?',
     required: true,
     options: YES_NO_OPTIONS,
+    sectionTitle: 'Covid-19 Health Information',
   },
   {
     type: 'radio',
@@ -145,6 +149,7 @@ const EXAMPLE_HEALTH: FormField[] = [
       'Have you been in close contact with someone with COVID-19 or someone who may have COVID-19?',
     required: true,
     options: YES_NO_OPTIONS,
+    sectionTitle: 'Covid-19 Health Information',
   },
   {
     type: 'radio',
@@ -153,24 +158,7 @@ const EXAMPLE_HEALTH: FormField[] = [
       'Have you travelled abroad in the past two weeks or been in close contact with someone who has?',
     required: true,
     options: YES_NO_OPTIONS,
-  },
-];
-
-export const VOLUNTEER_FORM: FormSection[] = [
-  {
-    id: 'personal-info',
-    label: 'Personal Information',
-    formFields: EXAMPLE_PERSONAL,
-  },
-  {
-    id: 'volunteering-info',
-    label: 'Volunteering Information',
-    formFields: EXAMPLE_VOLUNTEERING,
-  },
-  {
-    id: 'health-info',
-    label: 'COVID-19 Health Information',
-    formFields: EXAMPLE_HEALTH,
+    sectionTitle: 'Covid-19 Health Information',
   },
 ];
 
