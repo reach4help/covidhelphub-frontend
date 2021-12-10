@@ -21,11 +21,18 @@ function BeneficiariesFormComponent() {
   const { form, initialValues, schema } = getData();
 
   return (
-    <FormikComponent
-      formFields={form}
-      initialValues={initialValues}
-      schema={schema}
-    />
+    <>
+      <h1>Beneficiaries Form</h1>
+      <p>
+        Please fill out your information so we can match you with a volunteer to
+        fulfill your request.
+      </p>
+      <FormikComponent
+        formFields={form}
+        initialValues={initialValues}
+        schema={schema}
+      />
+    </>
   );
 }
 
