@@ -12,7 +12,7 @@ const YES_NO_OPTIONS: FieldOption[] = [
   },
 ];
 
-export const BENEFICIARIES_FORM: FormField[] = [
+export const BENEFICIARY_FORM: FormField[] = [
   {
     type: 'text',
     name: 'name',
@@ -171,7 +171,7 @@ export const BENEFICIARIES_FORM: FormField[] = [
   },
 ];
 
-export const BENEFICIARIES_SCHEMA = Yup.object().shape({
+export const BENEFICIARY_SCHEMA = Yup.object().shape({
   name: Yup.string().required('Please enter your name'),
   address: Yup.string(),
   postal: Yup.string()
@@ -193,7 +193,7 @@ export const BENEFICIARIES_SCHEMA = Yup.object().shape({
   grocery: Yup.array().min(0),
 });
 
-export const BENEFICIARIES_INITIAL_VALUES = {
+export const BENEFICIARY_INITIAL_VALUES = {
   name: '',
   address: '',
   postal: '',
