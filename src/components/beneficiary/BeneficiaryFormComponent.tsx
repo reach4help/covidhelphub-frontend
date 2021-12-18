@@ -1,28 +1,28 @@
 import React from 'react';
 import {
-  BENEFICIARIES_FORM,
-  BENEFICIARIES_INITIAL_VALUES,
-  BENEFICIARIES_SCHEMA,
-} from './BeneficiariesFormData';
+  BENEFICIARY_FORM,
+  BENEFICIARY_INITIAL_VALUES,
+  BENEFICIARY_SCHEMA,
+} from './BeneficiaryFormData';
 import FormikComponent from '../formik/FormikComponent';
 
-function BeneficiariesFormComponent() {
+function BeneficiaryFormComponent() {
   /**
    * Gets the form field data from the back end
    * TODO: complete the function
    */
   const getData = () => ({
-    name: 'Beneficiaries form',
-    form: BENEFICIARIES_FORM,
-    initialValues: BENEFICIARIES_INITIAL_VALUES,
-    schema: BENEFICIARIES_SCHEMA,
+    name: 'Beneficiary Form',
+    form: BENEFICIARY_FORM,
+    initialValues: BENEFICIARY_INITIAL_VALUES,
+    schema: BENEFICIARY_SCHEMA,
   });
 
   const { form, initialValues, schema } = getData();
 
   return (
     <>
-      <h1>Beneficiaries Form</h1>
+      <h1>Beneficiary Form</h1>
       <p>
         Please fill out your information so we can match you with a volunteer to
         fulfill your request.
@@ -36,4 +36,4 @@ function BeneficiariesFormComponent() {
   );
 }
 
-export default BeneficiariesFormComponent;
+export default BeneficiaryFormComponent;

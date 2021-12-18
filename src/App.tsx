@@ -11,7 +11,7 @@ import StageListComponent from './components/stage/StageListComponent';
 import './globals.css';
 import NavBarFunc from './NavBarFunc';
 import VolunteerFormComponent from './components/volunteer/VolunteerFormComponent';
-import BeneficiariesFormComponent from './components/beneficiaries/BeneficiariesFormComponent';
+import BeneficiaryFormComponent from './components/beneficiary/BeneficiaryFormComponent';
 import FormSubmitComponent from './components/formik/FormSuccess';
 // import ProgramRequestSelection from './components/request/RequestProgramSelection';
 
@@ -44,7 +44,7 @@ function App() {
           <Route
             exact
             path="/beneficiaries/form"
-            component={BeneficiariesFormComponent}
+            component={BeneficiaryFormComponent}
           />
           <Route
             exact
