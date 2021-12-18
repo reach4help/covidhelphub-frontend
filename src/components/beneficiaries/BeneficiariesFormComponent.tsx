@@ -3,7 +3,7 @@ import {
   BENEFICIARIES_FORM,
   BENEFICIARIES_INITIAL_VALUES,
   BENEFICIARIES_SCHEMA,
-} from './beneficiariesFormData';
+} from './BeneficiariesFormData';
 import FormikComponent from '../formik/FormikComponent';
 
 function BeneficiariesFormComponent() {
@@ -18,14 +18,21 @@ function BeneficiariesFormComponent() {
     schema: BENEFICIARIES_SCHEMA,
   });
 
-  const { form: formSections, initialValues, schema } = getData();
+  const { form, initialValues, schema } = getData();
 
   return (
-    <FormikComponent
-      formSections={formSections}
-      initialValues={initialValues}
-      schema={schema}
-    />
+    <>
+      <h1>Beneficiaries Form</h1>
+      <p>
+        Please fill out your information so we can match you with a volunteer to
+        fulfill your request.
+      </p>
+      <FormikComponent
+        formFields={form}
+        initialValues={initialValues}
+        schema={schema}
+      />
+    </>
   );
 }
 

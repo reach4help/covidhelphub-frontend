@@ -29,9 +29,9 @@ export default function NavBarFunc() {
   ];
   const mainMenuOptions = [
     { link: '/request/list', menuText: 'Requests', implemented: true },
-    { link: '/volunteer/list', menuText: 'Volunteers', implemented: false },
+    { link: '/volunteers/form', menuText: 'Volunteers', implemented: false },
     {
-      link: '/beneficiaries/list',
+      link: '/beneficiaries/form',
       menuText: 'Beneficiaries',
       implemented: false,
     },

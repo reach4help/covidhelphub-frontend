@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { FieldOption, FormField, FormSection } from '../formik/types';
+import { FieldOption, FormField } from '../formik/types';
 
 const YES_NO_OPTIONS: FieldOption[] = [
   {
@@ -12,19 +12,21 @@ const YES_NO_OPTIONS: FieldOption[] = [
   },
 ];
 
-const EXAMPLE_PERSONAL: FormField[] = [
+export const BENEFICIARIES_FORM: FormField[] = [
   {
     type: 'text',
     name: 'name',
     label: 'Full Name',
     required: true,
     placeholder: 'Full Name',
+    sectionTitle: 'Personal Information',
   },
   {
     type: 'text',
     name: 'address',
     label: 'Address',
     placeholder: 'Address',
+    sectionTitle: 'Personal Information',
   },
   {
     type: 'text',
@@ -33,6 +35,7 @@ const EXAMPLE_PERSONAL: FormField[] = [
     required: true,
     placeholder: 'Postal Code',
     shortStyle: true,
+    sectionTitle: 'Personal Information',
   },
   {
     type: 'email',
@@ -40,12 +43,14 @@ const EXAMPLE_PERSONAL: FormField[] = [
     label: 'Email',
     required: true,
     placeholder: 'Email',
+    sectionTitle: 'Personal Information',
   },
   {
     type: 'tel',
     name: 'phone',
     label: 'Phone Number',
     placeholder: 'Phone Number',
+    sectionTitle: 'Personal Information',
   },
 
   {
@@ -53,6 +58,7 @@ const EXAMPLE_PERSONAL: FormField[] = [
     name: 'dob',
     label: 'Date of birth',
     required: true,
+    sectionTitle: 'Personal Information',
   },
   {
     type: 'select',
@@ -64,16 +70,15 @@ const EXAMPLE_PERSONAL: FormField[] = [
       { label: 'Place 2', value: 'Place Two' },
       { label: 'Place 3', value: 'Place Three' },
     ],
+    sectionTitle: 'Personal Information',
   },
-];
-
-const EXAMPLE_HEALTH: FormField[] = [
   {
     type: 'radio',
     name: 'weakImuneSystem',
     label: 'Do you have a weakened immune system?',
     required: true,
     options: YES_NO_OPTIONS,
+    sectionTitle: 'Health Information',
   },
   {
     type: 'radio',
@@ -81,6 +86,7 @@ const EXAMPLE_HEALTH: FormField[] = [
     label: 'Do you have a chronic illness?',
     required: true,
     options: YES_NO_OPTIONS,
+    sectionTitle: 'Health Information',
   },
   {
     type: 'radio',
@@ -88,6 +94,7 @@ const EXAMPLE_HEALTH: FormField[] = [
     label: 'Do you live alone with a limited support network?',
     required: true,
     options: YES_NO_OPTIONS,
+    sectionTitle: 'Health Information',
   },
   {
     type: 'radio',
@@ -95,6 +102,7 @@ const EXAMPLE_HEALTH: FormField[] = [
     label: 'Are you currently sick or experiencing Covid-19 symptoms?',
     required: true,
     options: YES_NO_OPTIONS,
+    sectionTitle: 'Health Information',
   },
   {
     type: 'text',
@@ -102,10 +110,8 @@ const EXAMPLE_HEALTH: FormField[] = [
     label:
       'If you would like to explain your situation, or would like to share more details, please write it here.',
     placeholder: 'Miscellaneous',
+    sectionTitle: 'Health Information',
   },
-];
-
-const EXAMPLE_PROGRAM_DETAILS: FormField[] = [
   {
     type: 'checkbox',
     name: 'helpType',
@@ -125,6 +131,7 @@ const EXAMPLE_PROGRAM_DETAILS: FormField[] = [
         value: 'grocery',
       },
     ],
+    sectionTitle: 'Program Details',
   },
   {
     type: 'checkbox',
@@ -160,33 +167,12 @@ const EXAMPLE_PROGRAM_DETAILS: FormField[] = [
         value: 'yougurt',
       },
     ],
-  },
-];
-
-export const BENEFICIARIES_FORM: FormSection[] = [
-  {
-    id: 'personal-info',
-    label: 'Personal Details',
-    formFields: EXAMPLE_PERSONAL,
-  },
-  {
-    id: 'health-info',
-    label: 'Health Details',
-    formFields: EXAMPLE_HEALTH,
-  },
-  {
-    id: 'program-info',
-    label: 'Program Details',
-    formFields: EXAMPLE_PROGRAM_DETAILS,
+    sectionTitle: 'Program Details',
   },
 ];
 
 export const BENEFICIARIES_SCHEMA = Yup.object().shape({
   name: Yup.string().required('Please enter your name'),
-  email: Yup.string()
-    .required('Please enter your email')
-    .email('Please enter a valid email'),
-  phone: Yup.string(),
   address: Yup.string(),
   postal: Yup.string()
     .required('Please enter a Postal code or Zip code')
@@ -194,27 +180,30 @@ export const BENEFICIARIES_SCHEMA = Yup.object().shape({
       /[a-zA-Z][0-9][a-zA-Z] ?[a-zA-Z][0-9][a-zA-Z]|([a-zA-Z]{2})?[0-9]{5}/,
       'Please enter a valid Postal code or Zip code',
     ),
-
+  email: Yup.string()
+    .required('Please enter your email')
+    .email('Please enter a valid email'),
+  phone: Yup.string(),
   dob: Yup.string().required('Please select your date of birth'),
-  covid: Yup.string().required('Please select an option'),
-  helpType: Yup.array().min(1, 'Please select at least one option'),
   weakImuneSystem: Yup.string().required('Please select an option'),
   chronicIllness: Yup.string().required('Please select an option'),
   livingAlone: Yup.string().required('Please select an option'),
   sickWithCovid: Yup.string().required('Please select an option'),
+  helpType: Yup.array().min(1, 'Please select at least one option'),
+  grocery: Yup.array().min(0),
 });
 
 export const BENEFICIARIES_INITIAL_VALUES = {
   name: '',
-  email: '',
-  phone: '',
   address: '',
   postal: '',
+  email: '',
+  phone: '',
   dob: '',
-  covid: '',
-  helpType: [],
   weakImuneSystem: '',
   chronicIllness: '',
   livingAlone: '',
   sickWithCovid: '',
+  helpType: [],
+  grocery: [],
 };
