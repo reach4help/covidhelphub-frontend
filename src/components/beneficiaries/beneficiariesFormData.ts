@@ -173,10 +173,6 @@ export const BENEFICIARIES_FORM: FormField[] = [
 
 export const BENEFICIARIES_SCHEMA = Yup.object().shape({
   name: Yup.string().required('Please enter your name'),
-  email: Yup.string()
-    .required('Please enter your email')
-    .email('Please enter a valid email'),
-  phone: Yup.string(),
   address: Yup.string(),
   postal: Yup.string()
     .required('Please enter a Postal code or Zip code')
@@ -184,26 +180,30 @@ export const BENEFICIARIES_SCHEMA = Yup.object().shape({
       /[a-zA-Z][0-9][a-zA-Z] ?[a-zA-Z][0-9][a-zA-Z]|([a-zA-Z]{2})?[0-9]{5}/,
       'Please enter a valid Postal code or Zip code',
     ),
+  email: Yup.string()
+    .required('Please enter your email')
+    .email('Please enter a valid email'),
+  phone: Yup.string(),
   dob: Yup.string().required('Please select your date of birth'),
-  covid: Yup.string().required('Please select an option'),
-  helpType: Yup.array().min(1, 'Please select at least one option'),
   weakImuneSystem: Yup.string().required('Please select an option'),
   chronicIllness: Yup.string().required('Please select an option'),
   livingAlone: Yup.string().required('Please select an option'),
   sickWithCovid: Yup.string().required('Please select an option'),
+  helpType: Yup.array().min(1, 'Please select at least one option'),
+  grocery: Yup.array().min(0),
 });
 
 export const BENEFICIARIES_INITIAL_VALUES = {
   name: '',
-  email: '',
-  phone: '',
   address: '',
   postal: '',
+  email: '',
+  phone: '',
   dob: '',
-  covid: '',
-  helpType: [],
   weakImuneSystem: '',
   chronicIllness: '',
   livingAlone: '',
   sickWithCovid: '',
+  helpType: [],
+  grocery: [],
 };
