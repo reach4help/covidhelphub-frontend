@@ -19,48 +19,28 @@ function getNavBarHTML(
 }
 
 export default function NavBarFunc() {
-  const [showAdminMenu, setShowAdmin] = useState(false);
-  const adminMenuOptions = [
-    { link: '/program/list', menuText: 'Programs', implemented: true },
-    { link: '/stage/list', menuText: 'Stages', implemented: true },
-    { link: '/email/list', menuText: 'Email Templates', implemented: false },
-    { link: '/text/list', menuText: 'Text Templates', implemented: false },
-    { link: '/question/list', menuText: 'Questions', implemented: false },
-  ];
   const mainMenuOptions = [
-    { link: '/request/list', menuText: 'Requests', implemented: true },
-    { link: '/volunteers/form', menuText: 'Volunteers', implemented: false },
+    { link: '/account', menuText: 'Account', implemented: false },
+    { link: '/volunteers', menuText: 'Volunteers', implemented: false },
     {
-      link: '/beneficiaries/form',
+      link: '/beneficiaries',
       menuText: 'Beneficiaries',
       implemented: false,
     },
+    { link: '/program/list', menuText: 'Programs', implemented: true },
+    { link: '/form', menuText: 'Forms', implemented: false },
   ];
-  const adminMenuHTML = getNavBarHTML(adminMenuOptions);
-  const mainnMenuHTML = getNavBarHTML(mainMenuOptions);
+  const mainMenuHTML = getNavBarHTML(mainMenuOptions);
 
   function NavBar() {
-    return <div />;
-  }
-  let NavBar2;
-  if (showAdminMenu) {
-    NavBar2 = () => (
+    return (
       <>
         <Link to="/" className="nav-link">
-          <span onClick={() => setShowAdmin(false)}>Home</span>
+          <span>Dashboard</span>
         </Link>
-        {adminMenuHTML}
+        {mainMenuHTML}
       </>
     );
-  } else {
-    NavBar2 = () => (
-      <div>
-        <Link to="/admin" className="nav-link">
-          <span onClick={() => setShowAdmin(true)}>Admin</span>
-        </Link>
-        {mainnMenuHTML}
-      </div>
-    );
   }
-  return NavBar2;
+  return NavBar;
 }

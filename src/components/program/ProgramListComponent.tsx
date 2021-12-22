@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import ProgramModel from '../../objectModel/ProgramModel';
 import ProgramService from '../../services/ProgramService';
 
@@ -80,6 +81,7 @@ function ProgramListComponent() {
 
   return (
     <div>
+      <Link to="request/list">Requests</Link>
       <p>
         Count:
         {programCount}

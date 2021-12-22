@@ -13,6 +13,7 @@ import NavBarFunc from './NavBarFunc';
 import VolunteerFormComponent from './components/volunteer/VolunteerFormComponent';
 import BeneficiaryFormComponent from './components/beneficiary/BeneficiaryFormComponent';
 import FormSubmitComponent from './components/formik/FormSuccess';
+import FormComponent from './components/formik/FormComponent';
 // import ProgramRequestSelection from './components/request/RequestProgramSelection';
 
 function App() {
@@ -43,24 +44,25 @@ function App() {
           <Route exact path="/stage/list" component={StageListComponent} />
           <Route
             exact
-            path="/beneficiaries/form"
+            path="/form/beneficiaries"
             component={BeneficiaryFormComponent}
           />
           <Route
             exact
-            path="/beneficiaries/form/submitted"
+            path="/form/beneficiaries/submitted"
             component={FormSubmitComponent}
           />
           <Route
             exact
-            path="/volunteers/form"
+            path="/form/volunteers"
             component={VolunteerFormComponent}
           />
           <Route
             exact
-            path="/volunteers/form/submitted"
+            path="/form/volunteers/submitted"
             component={FormSubmitComponent}
           />
+          <Route exact path="/form" component={FormComponent} />
           <Route component={HomeComponent} />
         </Switch>
       </div>
