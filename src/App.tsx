@@ -9,21 +9,20 @@ import RequestListComponent from './components/request/RequestListComponent';
 import StageListComponent from './components/stage/StageListComponent';
 
 import './globals.css';
-import NavBarFunc from './NavBarFunc';
+import NavBarFunc from './NavBar';
 import VolunteerFormComponent from './components/volunteer/VolunteerFormComponent';
 import BeneficiaryFormComponent from './components/beneficiary/BeneficiaryFormComponent';
 import FormSubmitComponent from './components/formik/FormSuccess';
-import FormComponent from './components/formik/FormComponent';
+import FormComponent from './components/form/FormComponent';
 // import ProgramRequestSelection from './components/request/RequestProgramSelection';
 
 function App() {
-  const NavBar = NavBarFunc();
   // console.log(NavBar)
   // TODO: rethink lines for request/list with multiple parameters
   return (
     <div>
       <nav className="navbar">
-        <NavBar />
+        <NavBarFunc />
       </nav>
 
       <div className="container mt - 3">

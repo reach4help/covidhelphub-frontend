@@ -18,7 +18,7 @@ function getNavBarHTML(
   ));
 }
 
-export default function NavBarFunc() {
+export default function NavBar() {
   const mainMenuOptions = [
     { link: '/account', menuText: 'Account', implemented: false },
     { link: '/volunteers', menuText: 'Volunteers', implemented: false },
@@ -28,19 +28,16 @@ export default function NavBarFunc() {
       implemented: false,
     },
     { link: '/program/list', menuText: 'Programs', implemented: true },
-    { link: '/form', menuText: 'Forms', implemented: false },
+    { link: '/form', menuText: 'Forms', implemented: true },
   ];
   const mainMenuHTML = getNavBarHTML(mainMenuOptions);
 
-  function NavBar() {
-    return (
-      <>
-        <Link to="/" className="nav-link">
-          <span>Dashboard</span>
-        </Link>
-        {mainMenuHTML}
-      </>
-    );
-  }
-  return NavBar;
+  return (
+    <>
+      <Link to="/" className="nav-link">
+        <span>Dashboard</span>
+      </Link>
+      {mainMenuHTML}
+    </>
+  );
 }
