@@ -9,7 +9,7 @@ import RequestListComponent from './components/request/RequestListComponent';
 import StageListComponent from './components/stage/StageListComponent';
 
 import './globals.css';
-import NavBarFunc from './NavBar';
+import NavBar from './NavBar';
 import VolunteerFormComponent from './components/volunteer/VolunteerFormComponent';
 import BeneficiaryFormComponent from './components/beneficiary/BeneficiaryFormComponent';
 import FormSubmitComponent from './components/formik/FormSuccess';
@@ -22,7 +22,7 @@ function App() {
   return (
     <div>
       <nav className="navbar">
-        <NavBarFunc />
+        <NavBar />
       </nav>
 
       <div className="container mt - 3">
