@@ -19,7 +19,7 @@ class ProgramService {
     // const response = await fetch('http://localhost:8080/program/list'); // returns promise to get Programs
     // const json = await response.json();
     // return json.data;
-    const programsFromStorage = localStorage.getItem('programs') || '';
+    const programsFromStorage = localStorage.getItem('programs') || '[]';
     const programsJson = JSON.parse(programsFromStorage);
     return programsJson;
   }
