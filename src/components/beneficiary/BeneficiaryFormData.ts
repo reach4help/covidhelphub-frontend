@@ -134,7 +134,7 @@ export const BENEFICIARY_FORM: FormField[] = [
     sectionTitle: 'Program Details',
   },
   {
-    type: 'checkbox',
+    type: 'textList',
     name: 'grocery',
     label: 'Grocery delivery',
     options: [
@@ -144,11 +144,11 @@ export const BENEFICIARY_FORM: FormField[] = [
       },
       {
         label: 'Freezer/Refrigerated goods',
-        value: 'freezers',
+        value: 'freezer',
       },
       {
         label: 'Fruits and vegetables',
-        value: 'fruits',
+        value: 'produce',
       },
       {
         label: 'Dairy and eggs',
@@ -161,10 +161,6 @@ export const BENEFICIARY_FORM: FormField[] = [
       {
         label: 'Bread',
         value: 'bread',
-      },
-      {
-        label: 'Yougurt, Tea, Coffee',
-        value: 'yougurt',
       },
     ],
     sectionTitle: 'Program Details',
@@ -190,7 +186,12 @@ export const BENEFICIARY_SCHEMA = Yup.object().shape({
   livingAlone: Yup.string().required('Please select an option'),
   sickWithCovid: Yup.string().required('Please select an option'),
   helpType: Yup.array().min(1, 'Please select at least one option'),
-  grocery: Yup.array().min(0),
+  packaged: Yup.string(),
+  freezer: Yup.string(),
+  produce: Yup.string(),
+  diary: Yup.string(),
+  meat: Yup.string(),
+  bread: Yup.string(),
 });
 
 export const BENEFICIARY_INITIAL_VALUES = {
@@ -205,5 +206,10 @@ export const BENEFICIARY_INITIAL_VALUES = {
   livingAlone: '',
   sickWithCovid: '',
   helpType: [],
-  grocery: [],
+  packaged: '',
+  freezer: '',
+  produce: '',
+  diary: '',
+  meat: '',
+  bread: '',
 };
