@@ -37,6 +37,7 @@ export interface FieldOption {
   label: string;
   value: string;
   default?: boolean;
+  placeholder?: string | number;
 }
 
 export type FormField = {

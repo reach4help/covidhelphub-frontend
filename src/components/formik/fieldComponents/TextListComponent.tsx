@@ -24,7 +24,11 @@ function TextListComponent(props: Props) {
             <div className={Style.textOption}>
               <div>{option.label}</div>
               <span className={Style.longInput}>
-                <Field type="text" name={option.value} />
+                <Field
+                  type="text"
+                  name={option.value}
+                  placeholder={option.placeholder}
+                />
               </span>
             </div>
           </label>
