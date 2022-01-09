@@ -4,6 +4,7 @@ import React from 'react';
 import { Field, ErrorMessage } from 'formik';
 import Style from '../formikStyle.module.css';
 import { FormField } from '../types';
+import SpanIfText from './helpers/SpanIfText';
 
 interface Props {
   formField: FormField;
@@ -16,6 +17,7 @@ function CheckRadioFieldComponent(props: Props) {
       <legend className={formField.required ? Style.requiredLabel : ''}>
         {formField.label}
       </legend>
+      {SpanIfText(formField.explainationText)}
       <div className={Style.optionList}>
         {formField.options?.map((option) => (
           <label key={option.value}>

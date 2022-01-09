@@ -48,4 +48,5 @@ export type FormField = {
   required?: boolean;
   shortStyle?: boolean;
   sectionTitle?: string;
+  explainationText?: string;
 };
