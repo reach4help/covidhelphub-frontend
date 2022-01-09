@@ -137,6 +137,7 @@ export const BENEFICIARY_FORM: FormField[] = [
     type: 'textList',
     name: 'grocery',
     label: 'Grocery delivery',
+    explainationText: 'Enter your grocery list by category.',
     options: [
       {
         label: 'Canned and packaged goods',
