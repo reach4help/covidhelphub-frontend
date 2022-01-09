@@ -140,28 +140,36 @@ export const BENEFICIARY_FORM: FormField[] = [
     explainationText: 'Enter your grocery list by category.',
     options: [
       {
-        label: 'Canned and packaged goods',
+        label: 'Canned and Packaged goods',
         value: 'packaged',
+        placeholder:
+          'If you want to buy canned or packaged goods, enter them here',
       },
       {
-        label: 'Freezer/Refrigerated goods',
+        label: 'Freezer and Refrigerated goods',
         value: 'freezer',
+        placeholder:
+          'If you want to buy freezer or refridgerated goods, enter them here',
       },
       {
-        label: 'Fruits and vegetables',
+        label: 'Fruits and Vegetables',
         value: 'produce',
+        placeholder: 'If you want to buy fruits or vegetables, enter them here',
       },
       {
-        label: 'Dairy and eggs',
+        label: 'Dairy and Eggs',
         value: 'diary',
+        placeholder: 'If you want to buy dairy or eggs, enter them here',
       },
       {
         label: 'Meat',
         value: 'meat',
+        placeholder: 'If you want to buy meat, enter it here',
       },
       {
         label: 'Bread',
         value: 'bread',
+        placeholder: 'If you want to buy bread, enter it here',
       },
     ],
     sectionTitle: 'Program Details',
