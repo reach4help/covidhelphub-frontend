@@ -70,6 +70,10 @@
   padding: 1px 0px;
 }
 
+.formField fieldset .textOption {
+  padding: 5px 0px 5px 5px;
+}
+
 .formField fieldset .option input {
   margin: -5px 10px 0px 5px;
 }

@@ -23,6 +23,9 @@ export const multiFieldSet = new Set(['checkbox']);
 // select
 export const selectFieldSet = new Set(['select']);
 
+// text list
+export const textListFieldSet = new Set(['textList']);
+
 // Form Sections
 export interface FormSection {
   id: string;
