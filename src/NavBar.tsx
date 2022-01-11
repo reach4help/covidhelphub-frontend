@@ -27,7 +27,7 @@ export default function NavBar() {
       menuText: 'Beneficiaries',
       implemented: false,
     },
-    { link: '/program/list', menuText: 'Programs', implemented: true },
+    { link: '/programs', menuText: 'Programs', implemented: true },
     { link: '/form', menuText: 'Forms', implemented: true },
   ];
   const mainMenuHTML = getNavBarHTML(mainMenuOptions);

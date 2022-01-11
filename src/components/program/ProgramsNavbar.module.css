@@ -1,0 +1,24 @@
+.programsNavbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.programsNavbar a {
+  height: 3.5rem;
+  max-width: 10rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 1.25rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.programsNavbar a.active {
+  background: url(../../assets/ProgramsNavbar-Chevron.svg) no-repeat center;
+  background-size: 100% 3.5rem;
+  font-weight: 700;
+  color: #fff;
+}
