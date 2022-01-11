@@ -23,10 +23,21 @@ export const multiFieldSet = new Set(['checkbox']);
 // select
 export const selectFieldSet = new Set(['select']);
 
+// text list
+export const textListFieldSet = new Set(['textList']);
+
+// Form Sections
+export interface FormSection {
+  id: string;
+  label: string;
+  formFields: FormField[];
+}
+
 export interface FieldOption {
   label: string;
   value: string;
   default?: boolean;
+  placeholder?: string | number;
 }
 
 export type FormField = {
@@ -38,4 +49,5 @@ export type FormField = {
   required?: boolean;
   shortStyle?: boolean;
   sectionTitle?: string;
+  explainationText?: string;
 };

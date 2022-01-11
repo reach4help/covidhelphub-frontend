@@ -5,11 +5,13 @@ import {
   checkRadioFieldSet,
   selectFieldSet,
   FormField,
+  textListFieldSet,
 } from '../types';
 
 import CheckRadioFieldComponent from './CheckRadioFieldComponent';
 import TextFieldComponent from './TextFieldComponent';
 import SelectComponent from './SelectComponent';
+import TextListComponent from './TextListComponent';
 
 interface Props {
   formField: FormField;
@@ -32,10 +34,9 @@ function FieldComponent(props: Props) {
   } else if (checkRadioFieldSet.has(formField.type)) {
     component = <CheckRadioFieldComponent formField={formField} />;
   } else if (selectFieldSet.has(formField.type)) {
-    return FieldComponentWrapper(component);
-  }
-  if (selectFieldSet.has(formField.type)) {
     component = <SelectComponent formField={formField} />;
+  } else if (textListFieldSet.has(formField.type)) {
+    component = <TextListComponent formField={formField} />;
   }
   return FieldComponentWrapper(component);
 }

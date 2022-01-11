@@ -10,7 +10,7 @@ interface Props {
   formField: FormField;
 }
 
-function CheckRadioFieldComponent(props: Props) {
+function TextListComponent(props: Props) {
   const { formField } = props;
   return (
     <fieldset>
@@ -21,13 +21,15 @@ function CheckRadioFieldComponent(props: Props) {
       <div className={Style.optionList}>
         {formField.options?.map((option) => (
           <label key={option.value}>
-            <div className={Style.option}>
-              <Field
-                type={formField.type}
-                name={formField.name}
-                value={option.value}
-              />
-              <span>{option.label}</span>
+            <div className={Style.textOption}>
+              <div>{option.label}</div>
+              <span className={Style.longInput}>
+                <Field
+                  type="text"
+                  name={option.value}
+                  placeholder={option.placeholder}
+                />
+              </span>
             </div>
           </label>
         ))}
@@ -39,4 +41,4 @@ function CheckRadioFieldComponent(props: Props) {
   );
 }
 
-export default CheckRadioFieldComponent;
+export default TextListComponent;
