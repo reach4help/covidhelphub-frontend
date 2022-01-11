@@ -13,7 +13,7 @@ import VolunteerFormComponent from './components/volunteer/VolunteerFormComponen
 import BeneficiaryFormComponent from './components/beneficiary/BeneficiaryFormComponent';
 import FormSubmitComponent from './components/formik/FormSuccess';
 import FormComponent from './components/form/FormComponent';
-import Programs from './pages/Programs';
+import Programs from './components/program/Programs';
 // import ProgramRequestSelection from './components/request/RequestProgramSelection';
 
 function App() {

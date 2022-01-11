@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import ProgramsNavbar from '../components/program/ProgramsNavbar';
-import ProgramStageOpenComponent from '../components/program/program-stage/ProgramStageOpenComponent';
-import ProgramStageMatchingComponent from '../components/program/program-stage/ProgramStageMatchingComponent';
-import ProgramStageScheduledComponent from '../components/program/program-stage/ProgramStageScheduledComponent';
-import ProgramStageInProgressComponent from '../components/program/program-stage/ProgramStageInProgressComponent';
-import ProgramStageClosedComponent from '../components/program/program-stage/ProgramStageClosedComponent';
-import ProgramStageCanceledComponent from '../components/program/program-stage/ProgramStageCanceledComponent';
-import ProgramListComponent from '../components/program/ProgramListComponent';
+import ProgramsNavbar from './ProgramsNavbar';
+import ProgramStageOpenComponent from './program-stage/ProgramStageOpenComponent';
+import ProgramStageMatchingComponent from './program-stage/ProgramStageMatchingComponent';
+import ProgramStageScheduledComponent from './program-stage/ProgramStageScheduledComponent';
+import ProgramStageInProgressComponent from './program-stage/ProgramStageInProgressComponent';
+import ProgramStageClosedComponent from './program-stage/ProgramStageClosedComponent';
+import ProgramStageCanceledComponent from './program-stage/ProgramStageCanceledComponent';
+import ProgramListComponent from './ProgramListComponent';
 
 const programStageRoutes: {
   key: string;
