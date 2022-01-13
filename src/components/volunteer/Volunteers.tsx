@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Volunteers() {
-  //   console.log('volunteers');
-  return <div>Hi Volunteers!!</div>;
+  return <h1>Volunteers</h1>;
 }
 export default Volunteers;
