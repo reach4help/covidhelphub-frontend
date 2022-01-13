@@ -29,7 +29,6 @@ function App() {
 
       <div className="container mt - 3">
         <Switch>
-          <Route exact path="/" component={HomeComponent} />
           <Route
             path="/request/list/:programCode/:stageCode"
             component={RequestListComponent}
@@ -67,9 +66,9 @@ function App() {
             component={FormSubmitComponent}
           />
           <Route exact path="/form" component={FormComponent} />
-          <Route component={HomeComponent} />
           <Route exact path="/volunteers" component={Volunteers} />
           <Route exact path="/beneficiaries" component={Beneficiaries} />
+          <Route component={HomeComponent} />
         </Switch>
       </div>
     </div>
