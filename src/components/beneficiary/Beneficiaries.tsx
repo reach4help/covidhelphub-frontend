@@ -1,6 +1,6 @@
 import React from 'react';
 
 function Beneficiaries() {
-  return <div>Hi beneficiaries!!</div>;
+  return <h1>Beneficiaries</h1>;
 }
 export default Beneficiaries;
