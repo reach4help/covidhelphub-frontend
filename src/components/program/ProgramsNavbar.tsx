@@ -23,6 +23,7 @@ function ProgramsNavbar() {
           activeClassName={Style.active}
           to={`${url}/${programStage.key}`}
           key={programStage.key}
+          data-testid={programStage.key}
         >
           {programStage.name}
         </NavLink>
