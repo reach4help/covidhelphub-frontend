@@ -1,5 +1,5 @@
 // ***********************************************************
-// This example support/index.js is processed and
+// This support/index.js is processed and
 // loaded automatically before your test files.
 //
 // This is a great place to put global configuration and
@@ -14,7 +14,19 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import './commands';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      /**
+       * Custom command to select DOM element by data-cy attribute.
+       * @example cy.getByTestId('account')
+       */
+      getByTestId(testId: string): Chainable<Element>;
+    }
+  }
+}

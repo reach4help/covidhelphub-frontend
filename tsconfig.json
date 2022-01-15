@@ -33,5 +33,5 @@
   "isolatedModules": true,
   "noEmit": true,
   "jsx": "react-jsx",
-  "include": ["**/*.ts", "**/*.tsx", "cypress/plugins/index.js"]
+  "include": ["**/*.ts", "**/*.tsx", "cypress/plugins/index.ts"]
 }

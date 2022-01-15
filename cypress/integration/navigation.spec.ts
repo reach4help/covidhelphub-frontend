@@ -9,7 +9,10 @@ describe('Navigation test', () => {
   });
 
   context('Main Navbar', () => {
-    const pages = [
+    const pages: {
+      name: string;
+      text: string;
+    }[] = [
       { name: 'account', text: 'Content for" /account "TBD' },
       { name: 'volunteers', text: 'Content for" /volunteers "TBD' },
       { name: 'beneficiaries', text: 'Content for" /beneficiaries "TBD' },
@@ -25,12 +28,16 @@ describe('Navigation test', () => {
       });
     });
   });
+  
   context('Program Stages Navbar', () => {
     before(() => {
       cy.visit('/programs');
     });
 
-    const programStagePages = [
+    const programStagePages: {
+      name: string;
+      text: string;
+    }[] = [
       { name: 'open', text: 'Program Stage - Open' },
       { name: 'matching', text: 'Program Stage - Matching' },
       { name: 'scheduled', text: 'Program Stage - Scheduled' },
