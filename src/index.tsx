@@ -2,12 +2,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
-
+import 'semantic-ui-css/semantic.min.css';
+import { ThemeProvider } from 'styled-components';
 import App from './App';
+import { lightTheme } from './Theme/Index';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <ThemeProvider theme={lightTheme}>
+      <App />
+    </ThemeProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );

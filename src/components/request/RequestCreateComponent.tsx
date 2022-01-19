@@ -19,6 +19,7 @@ import React, { useState } from 'react';
 import Style from './requestStyle.module.css';
 import RequestModel from '../../objectModel/RequestModel';
 import RequestService from '../../services/RequestService';
+import Input from '../Common/Form/Input/Index';
 // import { useHistory } from "react-router-dom";
 
 // Get suport
@@ -132,17 +133,15 @@ export default function GetSupport() {
           }}
         >
           {/* name */}
-          <label>
-            <span className={Style.inputTitle}>Full Name</span>
-            <input
-              type="text"
-              name="name"
-              value={requestObj.name}
-              required
-              placeholder="Full Name"
-              onChange={(e) => handleInputChange(e)}
-            />
-          </label>
+          <Input
+            label="Full Name"
+            type="text"
+            name="name"
+            value={requestObj.name}
+            required
+            placeholder="Full Name"
+            onChange={handleInputChange}
+          />
 
           {/* Address */}
           <label>
