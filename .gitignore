@@ -353,3 +353,9 @@ MigrationBackup/
 
 # .DS_Store on Macs
 .DS_Store
+
+
+# package lock
+
+package-lock.*
+yarn.lock
