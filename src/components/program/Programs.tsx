@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import ProgramsNavbar from './ProgramsNavbar';
 import ProgramStageOpenComponent from './program-stage/ProgramStageOpenComponent';
@@ -8,6 +8,7 @@ import ProgramStageInProgressComponent from './program-stage/ProgramStageInProgr
 import ProgramStageClosedComponent from './program-stage/ProgramStageClosedComponent';
 import ProgramStageCanceledComponent from './program-stage/ProgramStageCanceledComponent';
 import ProgramListComponent from './ProgramListComponent';
+import Modal from '../utilities/Modal';
 
 const programStageRoutes: {
   key: string;
@@ -21,12 +22,37 @@ const programStageRoutes: {
   { key: 'canceled', component: ProgramStageCanceledComponent },
 ];
 
+// Placeholder Component for Pop-up content (To be removed later)
+function TestComponent() {
+  return (
+    <div style={{ width: '600px', height: '100px' }}>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident earum
+      veniam voluptatibus. Porro perferendis laboriosam dignissimos repellendus
+      tenetur. Dolores aperiam sint quis ducimus dolorem. Illo sint labore
+      doloremque esse sed! Fuga, sunt. Modi, deserunt earum!
+    </div>
+  );
+}
+
 function Programs() {
+  const [showPopup, setShowPopup] = useState<boolean>(false);
   const { path } = useRouteMatch();
   return (
     <div>
       <ProgramsNavbar />
       <h2>This is the Programs Page</h2>
+      {/* Test Button for Popup */}
+      <button type="button" onClick={() => setShowPopup(true)}>
+        Click for Pop-up
+      </button>
+      {showPopup && (
+        <Modal
+          title="Assign a new volunteer"
+          onClose={() => setShowPopup(false)}
+        >
+          <TestComponent />
+        </Modal>
+      )}
       <Switch>
         {programStageRoutes.map((programStageRoute) => (
           <Route
