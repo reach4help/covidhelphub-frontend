@@ -50,6 +50,7 @@
         "unnamedComponents": "arrow-function"
       }
     ],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.js", "**/*.spec.js"]}],
     "jsx-a11y/label-has-associated-control": [
       "error",
       {
