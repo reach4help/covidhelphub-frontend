@@ -5,20 +5,42 @@
 }
 
 .programsNavbar a {
-  height: 3.5rem;
-  max-width: 10rem;
+  height: 4rem;
+  max-width: 15rem;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 1.25rem;
+  padding-right: 0.45rem;
+  padding-left: 0.45rem; 
   font-size: 1.25rem;
   font-weight: 400;
 }
 
-.programsNavbar a.active {
+/* .programsNavbar a.active {
   background: url(../../assets/ProgramsNavbar-Chevron.svg) no-repeat center;
   background-size: 100% 3.5rem;
   font-weight: 700;
   color: #fff;
+}
+*/
+
+.programsNavbar  a.start {
+  background: url(../../assets/ProgramsNavbar-Chevron-start.svg) no-repeat center;
+  background-size: 100% 6rem;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+
+.programsNavbar  a.mid {
+  background: url(../../assets/ProgramsNavbar-Chevron-mid.svg) no-repeat center;
+  background-size: 100% 6rem;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+}
+.programsNavbar  a.end {
+  background: url(../../assets/ProgramsNavbar-Chevron-end.svg) no-repeat center;
+  background-size: 110% 6rem;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
 }
