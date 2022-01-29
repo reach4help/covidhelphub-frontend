@@ -1,39 +1,30 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import ProgramModel from '../../objectModel/ProgramModel';
+// import ProgramModel from '../../objectModel/ProgramModel';
 import ProgramService from '../../services/ProgramService';
 
 function ProgramListComponent() {
-  const [programs, setPrograms] = useState([] as ProgramModel[]);
+  const { data: programs, loading, refetch } = ProgramService.list();
   const [newProgramCode, setNewProgramCode] = useState('');
-  const [programCount, setProgramCount] = useState(0);
+  const [programCount] = useState(0);
   // forceUpdateCount used to update key of table row
   // If key is not changed, even though value of input field changes, React only refreshes
   // new rows or reduces number of rows, but does not update
-  const [forceUpdateCount, setForceUpdateCount] = useState(0);
-
-  useEffect(() => {
-    async function getData() {
-      const programData = await ProgramService.list();
-      setPrograms(programData);
-      setProgramCount(programData.count);
-    }
-    getData();
-  }, []);
+  const [forceUpdateCount] = useState(0);
 
   function addProgramToArray() {
-    programs.push(new ProgramModel(newProgramCode));
-    setPrograms(programs);
-    setNewProgramCode('');
-    setProgramCount(programs.length);
-    setForceUpdateCount(forceUpdateCount + 1);
+    // programs.push(new ProgramModel(newProgramCode));
+    // setPrograms(programs);
+    // setNewProgramCode('');
+    // setProgramCount(programs.length);
+    // setForceUpdateCount(forceUpdateCount + 1);
   }
 
-  function deleteArrayRow(i: number) {
-    programs.splice(i, 1);
-    setPrograms(programs);
-    setProgramCount(programs.length);
-    setForceUpdateCount(forceUpdateCount + 1);
+  function deleteArrayRow() {
+    // programs.splice(i, 1);
+    // setPrograms(programs);
+    // setProgramCount(programs.length);
+    // setForceUpdateCount(forceUpdateCount + 1);
   }
 
   function refreshNewProgramCode(e: React.ChangeEvent<HTMLInputElement>) {
@@ -41,38 +32,39 @@ function ProgramListComponent() {
   }
 
   function revertPrograms() {
-    async function getData() {
-      const programData = await ProgramService.list();
-      setPrograms(programData);
-      setProgramCount(programData.length);
-      setForceUpdateCount(forceUpdateCount + 1);
-    }
-    getData();
+    refetch();
   }
 
-  function updateArrayRow(e: React.ChangeEvent<HTMLInputElement>, i: number) {
-    programs[i].code = e.target.value;
-    setPrograms(programs);
+  function updateArrayRow() {
+    // programs[i].code = e.target.value;
+    // setPrograms(programs);
   }
 
   async function savePrograms() {
-    await ProgramService.saveMany(programs);
+    // await ProgramService.saveMany(programs);
   }
 
-  let ProgramLinks = {};
+  if (loading) {
+    return <span>Loading...</span>;
+  }
 
-  ProgramLinks = programs.map((program, i) => (
+  let ProgramLinks = [];
+
+  // demo purposes only
+  const orgs = [programs!.organization];
+
+  ProgramLinks = orgs.map((org) => (
     // eslint-disable-next-line react/no-array-index-key
-    <tr key={`item-${program.code}-${i}=${forceUpdateCount}`}>
+    <tr key={`item-${org.id}=${forceUpdateCount}`}>
       <td>
         <input
           type="text"
-          defaultValue={program.code}
-          onChange={(e) => updateArrayRow(e, i)}
+          defaultValue={org.name}
+          onChange={() => updateArrayRow()}
         />
       </td>
       <td>
-        <button type="button" onClick={() => deleteArrayRow(i)}>
+        <button type="button" onClick={() => deleteArrayRow()}>
           Delete
         </button>
       </td>
