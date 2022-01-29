@@ -15,6 +15,8 @@ import FormSubmitComponent from './components/formik/FormSuccess';
 import FormComponent from './components/form/FormComponent';
 import Programs from './components/program/Programs';
 // import ProgramRequestSelection from './components/request/RequestProgramSelection';
+import Beneficiaries from './components/beneficiary/Beneficiaries';
+import Volunteers from './components/volunteer/Volunteers';
 
 function App() {
   // console.log(NavBar)
@@ -27,7 +29,6 @@ function App() {
 
       <div className="container mt - 3">
         <Switch>
-          <Route exact path="/" component={HomeComponent} />
           <Route
             path="/request/list/:programCode/:stageCode"
             component={RequestListComponent}
@@ -65,6 +66,8 @@ function App() {
             component={FormSubmitComponent}
           />
           <Route exact path="/form" component={FormComponent} />
+          <Route exact path="/volunteers" component={Volunteers} />
+          <Route exact path="/beneficiaries" component={Beneficiaries} />
           <Route component={HomeComponent} />
         </Switch>
       </div>
