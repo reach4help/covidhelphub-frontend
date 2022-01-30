@@ -6,7 +6,7 @@
     "strict": true,
     "lib": ["esnext", "DOM"],
     "target": "es5",
-    "types": ["cypress"],
+    "types": ["jest"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -33,5 +33,6 @@
   "isolatedModules": true,
   "noEmit": true,
   "jsx": "react-jsx",
-  "include": ["**/*.ts", "**/*.tsx", "cypress/plugins/index.ts"]
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["cypress"]
 }
