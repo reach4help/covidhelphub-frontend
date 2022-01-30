@@ -1,4 +1,8 @@
+import { useQuery } from '@apollo/client';
+
 import ProgramModel from '../objectModel/ProgramModel';
+import PROGRAM_LIST_QUERY from '../gql/programlist.gql';
+import { PROGRAM_LIST } from '../gql/types/PROGRAM_LIST';
 
 class ProgramService {
   static async saveMany(programs: ProgramModel[]) {
@@ -15,13 +19,8 @@ class ProgramService {
     localStorage.setItem('programs', JSON.stringify(programs));
   }
 
-  static async list() {
-    // const response = await fetch('http://localhost:8080/program/list'); // returns promise to get Programs
-    // const json = await response.json();
-    // return json.data;
-    const programsFromStorage = localStorage.getItem('programs') || '[]';
-    const programsJson = JSON.parse(programsFromStorage);
-    return programsJson;
+  static list() {
+    return useQuery<PROGRAM_LIST>(PROGRAM_LIST_QUERY);
   }
 }
 
