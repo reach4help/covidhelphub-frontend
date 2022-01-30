@@ -17,7 +17,6 @@ const Backdrop = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 999 !important;
 `;
 
 // Styled component for the popup box
@@ -42,8 +41,6 @@ const PopupDiv = styled.div`
   align-items: center;
   text-align: center;
   flex: none;
-
-  z-index: 9999 !important;
 
   & h3 {
     font-family: Roboto;
