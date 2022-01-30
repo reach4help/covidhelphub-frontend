@@ -14,6 +14,7 @@ export default function Volunteers() {
     <div
       style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}
     >
+      Volunteers
       <Table columns={columns} data={data} />
     </div>
   );
