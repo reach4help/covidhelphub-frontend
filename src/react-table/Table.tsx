@@ -1,6 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable react/jsx-props-no-spreading */
-/* eslint no-nested-ternary: "error" */
 import React from 'react';
 
 import {

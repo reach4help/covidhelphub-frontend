@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-indent */
-/* eslint-disable indent */
 import React from 'react';
 
 export default function GlobalFiltering({
@@ -12,7 +10,7 @@ export default function GlobalFiltering({
   return (
     <span style={{ margin: '1rem' }}>
       Search:
-{' '}
+      {' '}
       <input
         style={{ padding: '0.25rem' }}
         value={filter || ''}

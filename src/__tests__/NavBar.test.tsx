@@ -1,8 +1,8 @@
-import NavBar from '../NavBar';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 import { Router } from 'react-router-dom';
+import NavBar from '../NavBar';
 
 const pages: {
   pageName: string;
@@ -22,7 +22,7 @@ describe('NavBar Component', () => {
       render(
         <Router history={history}>
           <NavBar />
-        </Router>
+        </Router>,
       );
 
       userEvent.click(screen.getByTestId(`${page.pageName}`));

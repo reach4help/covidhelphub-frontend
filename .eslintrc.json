@@ -25,6 +25,7 @@
   ],
   "rules": {
     "no-use-before-define": "off",
+    "react/jsx-props-no-spreading": "off",
     "linebreak-style": [
       "error",
       "unix"
@@ -95,6 +96,16 @@
       }
     ]
   },
+  "overrides": [
+    {
+      "files": ["*.test.tsx","*.test.ts"],
+      "rules": {
+        "import/no-extraneous-dependencies": ["error", {
+          "devDependencies": true
+       }]
+      }
+    }
+  ],
   "settings": {
     "import/resolver": {
       "node": {

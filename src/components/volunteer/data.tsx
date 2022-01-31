@@ -1,5 +1,3 @@
-/* eslint-disable indent */
-
 // Hardcoded data (Name, Email, Phone, Postal Code, Time Commitment)
 const tableRows = [
   {

@@ -1,7 +1,5 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function getNavBarHTML(

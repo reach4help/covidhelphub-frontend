@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 // Name, Email, Phone, Postal Code, acquisition
 const tableRows = [
   {
@@ -63,7 +62,7 @@ const tableRows = [
     email: 'bl100@wellesley.edu',
     phone: '+6879767475678',
     postalCode: 'M0076',
-    programs: 'Grocery delivery: Eags',
+    programs: 'Grocery delivery: Eggs',
   },
   {
     id: 9,
@@ -71,7 +70,7 @@ const tableRows = [
     email: 'lakshay.ag09@gmail.com',
     phone: '+89022267878121',
     postalCode: '0P01',
-    programs: 'Grocery delivery: Bread, Eags, Vegetables',
+    programs: 'Grocery delivery: Bread, Eggs, Vegetables',
   },
   {
     id: 10,
