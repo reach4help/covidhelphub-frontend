@@ -1,4 +1,3 @@
-/* eslint-disable indent */
 // Name, Email, Phone, Postal Code, acquisition
 const tableRows = [
   {

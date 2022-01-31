@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import React from 'react';
 import * as Yup from 'yup';
 import { AnyObject } from 'yup/lib/types';
@@ -26,6 +25,7 @@ function FormikComponent(props: Props) {
         initialValues={initialValues}
         validationSchema={schema}
         onSubmit={(values, { setSubmitting }) => {
+          // eslint-disable-next-line no-console
           console.log(values);
           history.push(`${history.location.pathname}/submitted`);
           setSubmitting(false);
