@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ProgramModel from '../../objectModel/ProgramModel';
 import ProgramService from '../../services/ProgramService';
+import { tableRows, tableColumns } from '../beneficiary/data';
+import Table from '../../react-table/Table';
 
 function ProgramListComponent() {
   const [programs, setPrograms] = useState([] as ProgramModel[]);
@@ -79,8 +81,21 @@ function ProgramListComponent() {
     </tr>
   ));
 
+  const data = React.useMemo(() => tableRows, []);
+  const columns = React.useMemo(() => tableColumns, []);
+
   return (
     <div>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          flexDirection: 'column',
+        }}
+      >
+        Beneficiaries
+        <Table columns={columns} data={data} />
+      </div>
       <Link to="request/list">Requests</Link>
       <p>
         Count:
