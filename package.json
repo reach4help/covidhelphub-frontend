@@ -3,9 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/user-event": "^12.1.10",
     "body-parser": "^1.19.0",
     "eslint-config-airbnb-typescript": "^16.0.0",
     "formik": "^2.2.9",
@@ -25,6 +22,9 @@
   "devDependencies": {
     "@babel/preset-env": "^7.14.0",
     "@babel/preset-react": "^7.13.13",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.2.6",
+    "@testing-library/user-event": "^12.1.10",
     "@types/react-dom": "^17.0.11",
     "@types/react-router-dom": "^5.3.2",
     "@types/react-table": "^7.7.9",
