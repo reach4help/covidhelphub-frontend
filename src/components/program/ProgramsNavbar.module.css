@@ -6,41 +6,46 @@
 
 .programsNavbar a {
   height: 4rem;
-  max-width: 15rem;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-right: 0.45rem;
-  padding-left: 0.45rem; 
+  padding-right: 0rem;
+  padding-left:0rem;
+  margin-right: -2rem;
+  margin-left: -2rem;
   font-size: 1.25rem;
   font-weight: 400;
 }
 
-/* .programsNavbar a.active {
-  background: url(../../assets/ProgramsNavbar-Chevron.svg) no-repeat center;
-  background-size: 100% 3.5rem;
+.programsNavbar  a {
+  background-size: 100% 6rem;
   font-weight: 700;
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
-*/
 
-.programsNavbar  a.start {
+.programsNavbar  a.active {
+  background:  url(../../assets/ProgramsNavbar-Chevron-mid.svg) no-repeat center;
+  background-size: 100% 6rem;
+  font-weight: 700;
+  color: rgb(255, 255, 255);
+  opacity:1;
+}
+
+.programsNavbar  a.active:first-child {
   background: url(../../assets/ProgramsNavbar-Chevron-start.svg) no-repeat center;
   background-size: 100% 6rem;
   font-weight: 700;
   color: rgb(255, 255, 255);
+  opacity:1;
 }
 
-.programsNavbar  a.mid {
-  background: url(../../assets/ProgramsNavbar-Chevron-mid.svg) no-repeat center;
+.programsNavbar  a.active:last-child {
+  background: url(../../assets/ProgramsNavbar-Chevron-end.svg) no-repeat center;
   background-size: 100% 6rem;
   font-weight: 700;
   color: rgb(255, 255, 255);
+  opacity:1;
 }
-.programsNavbar  a.end {
-  background: url(../../assets/ProgramsNavbar-Chevron-end.svg) no-repeat center;
-  background-size: 110% 6rem;
-  font-weight: 700;
-  color: rgb(255, 255, 255);
-}
+
+
