@@ -6,7 +6,6 @@
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^12.1.10",
-    "@types/react-table": "^7.7.9",
     "body-parser": "^1.19.0",
     "eslint-config-airbnb-typescript": "^16.0.0",
     "formik": "^2.2.9",
@@ -19,9 +18,32 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.4",
     "styled-components": "^5.3.3",
-    "typescript": "^4.4.4",
     "web-vitals": "^1.0.1",
     "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.14.0",
+    "@babel/preset-react": "^7.13.13",
+    "@types/react-dom": "^17.0.11",
+    "@types/react-router-dom": "^5.3.2",
+    "@types/react-table": "^7.7.9",
+    "@types/react-test-renderer": "^17.0.1",
+    "@types/styled-components": "^5.1.20",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "babel-jest": "^26.6.3",
+    "cypress": "^9.2.1",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
+    "prettier": "^2.4.1",
+    "react-test-renderer": "^17.0.2",
+    "ts-jest": "26.5.6",
+    "typescript": "^4.4.4"
   },
   "lint-staged": {
     "src/**/*.ts*": [
@@ -58,27 +80,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.14.0",
-    "@babel/preset-react": "^7.13.13",
-    "@types/react-dom": "^17.0.11",
-    "@types/react-router-dom": "^5.3.2",
-    "@types/react-test-renderer": "^17.0.1",
-    "@types/styled-components": "^5.1.20",
-    "@typescript-eslint/eslint-plugin": "^5.4.0",
-    "@typescript-eslint/parser": "^5.4.0",
-    "babel-jest": "^26.6.3",
-    "cypress": "^9.2.1",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.1.2",
-    "prettier": "^2.4.1",
-    "react-test-renderer": "^17.0.2",
-    "ts-jest": "26.5.6"
   }
 }
