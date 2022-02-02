@@ -1,5 +1,5 @@
 
-ul {
+.form_options_outer {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@ ul {
   background-color: rgb(255, 255, 255);
 }
 
-li {
+.form_options_inner {
   float: left;
   margin-right:10px;
   align-items: center;
@@ -37,17 +37,17 @@ li {
   width: auto;
 }
 
-li:hover,
-li:focus {
+.form_options_inner:hover,
+.form_options_inner:focus {
   background-color: #000000;
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
 }
 
-li:hover {
+.form_options_inner:hover {
   transform: translateY(-1px);
 }
 
-li:active {
+.form_options_inner:active {
   background-color: #000000;
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
