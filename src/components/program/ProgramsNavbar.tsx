@@ -20,9 +20,9 @@ function ProgramsNavbar() {
     <div className={Style.programsNavbar}>
       {programStages.map((programStage) => (
         <NavLink
+          key={programStage.key}
           activeClassName={Style.active}
           to={`${url}/${programStage.key}`}
-          key={programStage.key}
           data-testid={programStage.key}
         >
           {programStage.name}

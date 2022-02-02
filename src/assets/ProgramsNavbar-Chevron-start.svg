@@ -1,0 +1,9 @@
+<!-- <svg width="162" height="56" viewBox="0 0 162 56" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M126.852 0H3C1.34315 0 0 1.34314 0 3V53C0 54.6569 1.34315 56 3 56H126.867C127.542 56 128.198 55.7721 128.728 55.3532L160.051 30.5843C161.561 29.3899 161.571 27.102 160.071 25.8944L128.734 0.663253C128.2 0.23403 127.537 0 126.852 0Z" fill="#828282"/>
+</svg>
+ -->
+
+
+<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="4em" height="3em" preserveAspectRatio="none" viewBox="0 0 256 256">
+<path d="M246.7 132.4L201 200.9a15.9 15.9 0 0 1-13.3 7.1H40a16 16 0 0 1-16-16V64a16 16 0 0 1 16-16h147.7a15.9 15.9 0 0 1 13.3 7.1l45.7 68.5a7.8 7.8 0 0 1 0 8.8z" fill="#828282"/>
+</svg>
