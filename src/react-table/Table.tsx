@@ -1,5 +1,5 @@
 import React from 'react';
-
+import styled from 'styled-components';
 import {
   useTable,
   useGroupBy,
@@ -11,6 +11,11 @@ import {
 } from 'react-table';
 import GlobalFiltering from './GlobalFiltering';
 
+const ColumnVisibilityCheckboxes = styled.div`
+  display: flex;
+  margin: 1rem;
+`;
+
 function Table({ columns, data }: { columns: any; data: any }) {
   const {
     getTableProps,
@@ -20,6 +25,7 @@ function Table({ columns, data }: { columns: any; data: any }) {
     prepareRow,
     state,
     setGlobalFilter,
+    allColumns,
   } = useTable(
     { columns, data },
     useFilters,
@@ -33,6 +39,16 @@ function Table({ columns, data }: { columns: any; data: any }) {
   return (
     <>
       <GlobalFiltering filter={globalFilter} setFilter={setGlobalFilter} />
+      <ColumnVisibilityCheckboxes>
+        {allColumns.map((column) => (
+          <div key={column.id}>
+            <label>
+              <input type="checkbox" {...column.getToggleHiddenProps()} />
+              {column.Header}
+            </label>
+          </div>
+        ))}
+      </ColumnVisibilityCheckboxes>
       <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
         <thead>
           {headerGroups.map((headerGroup) => (
