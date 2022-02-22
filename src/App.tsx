@@ -5,7 +5,7 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 import HomeComponent from './components/HomeComponent';
 import RequestListComponent from './components/request/RequestListComponent';
 import StageListComponent from './components/stage/StageListComponent';
-
+import ButtonExampleEmphasis from './components/utilities/Button';
 import './globals.css';
 import NavBar from './NavBar';
 import VolunteerFormComponent from './components/volunteer/VolunteerFormComponent';
@@ -70,6 +70,8 @@ function App() {
           <Route component={HomeComponent} />
         </Switch>
       </div>
+      <ButtonExampleEmphasis />
+      <button type="button">Hey</button>
     </div>
   );
 }
