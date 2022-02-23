@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Route, Switch, useRouteMatch } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
 import ProgramsNavbar from './ProgramsNavbar';
 import ProgramStageOpenComponent from './program-stage/ProgramStageOpenComponent';
 import ProgramStageMatchingComponent from './program-stage/ProgramStageMatchingComponent';
@@ -42,9 +43,14 @@ function Programs() {
       <ProgramsNavbar />
       <h2>This is the Programs Page</h2>
       {/* Test Button for Popup */}
-      <button type="button" onClick={() => setShowPopup(true)}>
+      <Button
+        className="px-3 py-2"
+        type="button"
+        variant="outline-gray1"
+        onClick={() => setShowPopup(true)}
+      >
         Click for Pop-up
-      </button>
+      </Button>
       {showPopup && (
         <Modal
           title="Assign a new volunteer"
