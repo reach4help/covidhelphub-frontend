@@ -33,7 +33,7 @@ const PopupDiv = styled.div`
   border-radius: 4px;
   padding: 3.125rem 1.875rem;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
-  background-color: ${(props) => props.theme.color.gray6};
+  background-color: ${({ theme }) => theme.color.gray6};
 
   display: flex;
   flex-direction: column;
@@ -43,7 +43,7 @@ const PopupDiv = styled.div`
   flex: none;
 
   & h5 {
-    color: ${(props) => props.theme.color.gray1};
+    color: ${({ theme }) => theme.color.gray1};
     margin: 0 0 2rem;
   }
 `;
