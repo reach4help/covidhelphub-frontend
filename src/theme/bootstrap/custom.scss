@@ -1,0 +1,79 @@
+// Override default variables before the import
+
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/utilities';
+
+//===========================================
+// Custom Color Map
+//===========================================
+
+$theme-colors: (
+  'gray1': #333333,
+  'gray2': #4f4f4f,
+  'gray3': #828282,
+  'gray4': #bdbdbd,
+  'gray5': #e0e0e0,
+  'gray6': #f2f2f2,
+);
+
+//===========================================
+// Custom Font Size
+//===========================================
+
+$large-font-size: $font-size-base * 1.25;
+$medium-font-size: $font-size-base;
+$small-font-size: $font-size-base * 0.75;
+$overline-font-size: $font-size-base * 0.625;
+
+$font-sizes: (
+  'large': $large-font-size,
+  'medium': $medium-font-size,
+  'small': $small-font-size,
+  'overline': $overline-font-size,
+);
+
+//===========================================
+// Custom line height
+//===========================================
+
+$line-height-large: 1.75rem;
+$line-height-medium: 1.5rem;
+$line-height-small: 1.25rem;
+$line-height-overline: 1rem;
+
+$utilities: (
+  'line-height': (
+    property: line-height,
+    class: lh,
+    values: (
+      1: 1,
+      sm: $line-height-sm,
+      base: $line-height-base,
+      lg: $line-height-lg,
+      large: $line-height-large,
+      medium: $line-height-medium,
+      small: $line-height-small,
+      overline: $line-height-overline,
+    ),
+  ),
+  'color': (
+    property: color,
+    class: text,
+    values:
+      map-merge(
+        $theme-colors,
+        (
+          'white': $white,
+          'body': $body-color,
+          'muted': $text-muted,
+          'black-50': rgba($black, 0.5),
+          'white-50': rgba($white, 0.5),
+          'reset': inherit,
+        )
+      ),
+  ),
+);
+
+// Import Bootstrap and its default variables
+@import '~bootstrap/scss/bootstrap.scss';
