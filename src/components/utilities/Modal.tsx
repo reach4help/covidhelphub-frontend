@@ -33,7 +33,7 @@ const PopupDiv = styled.div`
   border-radius: 4px;
   padding: 3.125rem 1.875rem;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.3);
-  background-color: #f2f2f2;
+  background-color: ${({ theme }) => theme.color.gray6};
 
   display: flex;
   flex-direction: column;
@@ -42,11 +42,8 @@ const PopupDiv = styled.div`
   text-align: center;
   flex: none;
 
-  & h3 {
-    font-family: Roboto;
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: #333333;
+  & h5 {
+    color: ${({ theme }) => theme.color.gray1};
     margin: 0 0 2rem;
   }
 `;
@@ -78,7 +75,7 @@ function Popup({ title, onClose, children }: Props) {
   return (
     <PopupDiv>
       <CloseButton aria-label="close button" type="button" onClick={onClose} />
-      <h3>{title}</h3>
+      <h5>{title}</h5>
       <div>{children}</div>
     </PopupDiv>
   );
