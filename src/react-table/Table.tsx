@@ -105,18 +105,17 @@ function Table({ columns, data }: { columns: any; data: any }) {
                     {...column.getHeaderProps(column.getSortByToggleProps())}
                     style={{ display: 'inline', cursor: 'pointer' }}
                   >
-                    {column.render('Header')}
                     <span>
                       {
                         // eslint-disable-next-line no-nested-ternary
                         column.isSorted ? (
                           column.isSortedDesc ? (
-                            <span style={{ color: 'rgba(20,20,20,0.7)' }}>
-                              {'  ⬇'}
+                            <span style={{ color: 'rgba(20,20,20,0.75)' }}>
+                              {'⬆  '}
                             </span>
                           ) : (
-                            <span style={{ color: 'rgba(20,20,20,0.7)' }}>
-                              {'  ⬆'}
+                            <span style={{ color: 'rgba(20,20,20,0.75)' }}>
+                              {'⬇  '}
                             </span>
                           )
                         ) : (
@@ -124,6 +123,7 @@ function Table({ columns, data }: { columns: any; data: any }) {
                         )
                       }
                     </span>
+                    {column.render('Header')}
                   </span>
                   <ResizeBar {...column.getResizerProps()} />
                 </TH>
