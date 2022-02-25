@@ -18,8 +18,9 @@ const ColumnVisibilityCheckboxes = styled.div`
 // eslint-disable-next-line no-unused-vars
 const ResizeBar = styled.div`
   display: inline-block;
-  background: blue;
-  width: 10px;
+  background: rgb(20, 20, 20);
+  width: 6px;
+  border-radius: 3px;
   height: 100%;
   position: absolute;
   right: 0px;
@@ -32,6 +33,19 @@ const ResizeBar = styled.div`
   &.isResizing {
     background: red;
   }
+`;
+
+const TD = styled.td`
+  padding: 0.4rem;
+  overflow: hidden;
+  font-size: 0.95rem;
+`;
+
+const TH = styled.th`
+  padding: 0.4rem;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
 `;
 
 function Table({ columns, data }: { columns: any; data: any }) {
@@ -86,20 +100,33 @@ function Table({ columns, data }: { columns: any; data: any }) {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 // eslint-disable-next-line react/no-array-index-key
-                <th {...column.getHeaderProps(column.getSortByToggleProps())}>
-                  {column.render('Header')}
-                  <ResizeBar {...column.getResizerProps()} />
-                  <span>
-                    {
-                      // eslint-disable-next-line no-nested-ternary
-                      column.isSorted
-                        ? column.isSortedDesc
-                          ? ' 🔽'
-                          : ' 🔼'
-                        : ''
-                    }
+                <TH {...column.getHeaderProps()}>
+                  <span
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                    style={{ display: 'inline', cursor: 'pointer' }}
+                  >
+                    {column.render('Header')}
+                    <span>
+                      {
+                        // eslint-disable-next-line no-nested-ternary
+                        column.isSorted ? (
+                          column.isSortedDesc ? (
+                            <span style={{ color: 'rgba(20,20,20,0.7)' }}>
+                              {'  ⬇'}
+                            </span>
+                          ) : (
+                            <span style={{ color: 'rgba(20,20,20,0.7)' }}>
+                              {'  ⬆'}
+                            </span>
+                          )
+                        ) : (
+                          ''
+                        )
+                      }
+                    </span>
                   </span>
-                </th>
+                  <ResizeBar {...column.getResizerProps()} />
+                </TH>
               ))}
             </tr>
           ))}
@@ -111,7 +138,7 @@ function Table({ columns, data }: { columns: any; data: any }) {
               // eslint-disable-next-line react/no-array-index-key
               <tr {...row.getRowProps()} key={index}>
                 {row.cells.map((cell) => (
-                  <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                  <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
                 ))}
               </tr>
             );
