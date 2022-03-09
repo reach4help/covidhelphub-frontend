@@ -1,0 +1,100 @@
+@import '~bootstrap/scss/functions';
+
+// Theme Color variables override
+$dark: #333333;
+$light: #f2f2f2;
+
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/utilities';
+
+
+//===========================================
+// Custom Color Map
+//===========================================
+
+$custom-theme-colors: (
+  'gray1': $dark,
+  'gray2': #4f4f4f,
+  'gray3': #828282,
+  'gray4': #bdbdbd,
+  'gray5': #e0e0e0,
+  'gray6': $light,
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+
+//===========================================
+// Custom Font Size
+//===========================================
+
+$large-font-size: $font-size-base * 1.25;
+$medium-font-size: $font-size-base;
+$small-font-size: $font-size-base * 0.75;
+$overline-font-size: $font-size-base * 0.625;
+
+$custom-font-sizes: (
+  'large': $large-font-size,
+  'medium': $medium-font-size,
+  'small': $small-font-size,
+  'overline': $overline-font-size,
+);
+$font-sizes: map-merge($custom-font-sizes, $font-sizes);
+
+//===========================================
+// Custom line height
+//===========================================
+
+$line-height-large: 1.75rem;
+$line-height-medium: 1.5rem;
+$line-height-small: 1.25rem;
+$line-height-overline: 1rem;
+
+
+//===========================================
+// Utilities override
+//===========================================
+
+$utilities: (
+  'color': (
+    property: color,
+    class: text,
+    values:
+      map-merge(
+        $theme-colors,
+        (
+          'white': $white,
+          'body': $body-color,
+          'muted': $text-muted,
+          'reset': inherit,
+        )
+      ),
+  ),
+  'background-color': (
+    property: background-color,
+    class: bg,
+    values:
+      map-merge(
+        $theme-colors,
+        (
+          'body': $body-bg,
+          'white': $white,
+          'transparent': transparent,
+        )
+      ),
+  ),
+  'line-height': (
+    property: line-height,
+    class: lh,
+    values: (
+      1: 1,
+      large: $line-height-large,
+      medium: $line-height-medium,
+      small: $line-height-small,
+      overline: $line-height-overline,
+    ),
+  ),
+);
+
+@import '~bootstrap/scss/bootstrap.scss';
