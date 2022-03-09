@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import {
+  // eslint-disable-next-line max-len
   useTable,
   useGroupBy,
   useFilters,
@@ -8,52 +9,36 @@ import {
   useBlockLayout,
   useGlobalFilter,
   useResizeColumns,
+  useColumnOrder,
 } from 'react-table';
 import GlobalFiltering from './GlobalFiltering';
+import {
+  ColumnVisibilityCheckboxes,
+  ResizeBar,
+  TD,
+  TH,
+  TableWraper,
+} from './styledComponent';
 
-const ColumnVisibilityCheckboxes = styled.div`
-  display: flex;
-  margin: 1rem;
-`;
-// eslint-disable-next-line no-unused-vars
-const ResizeBar = styled.div`
-  display: inline-block;
-  background: rgb(20, 20, 20);
-  width: 6px;
-  border-radius: 3px;
-  height: 100%;
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  transform: translateX(50%);
-  z-index: 1;
-  ${'' /* prevents from scrolling while dragging on touch devices */}
-  touch-action:none;
+// eslint-disable-next-line max-len
+const itemStyle = (
+  { isDragging, isDropAnimating }: { isDragging: any; isDropAnimating: any },
+  draggableStyle: any,
+) => ({
+  ...draggableStyle, // some basic styles to make the items look a bit nicer
+  userSelect: 'none',
+  color: isDragging ? 'red' : '', // change background colour if dragging
 
-  &.isResizing {
-    background: red;
-  }
-`;
-
-const TD = styled.td`
-  padding: 0.4rem;
-  overflow: hidden;
-  font-size: 0.95rem;
-`;
-
-const TH = styled.th`
-  padding: 0.4rem;
-  text-align: left;
-  font-size: 1rem;
-  font-weight: 600;
-`;
+  ...(!isDragging && { transform: 'translate(0,0)' }),
+  ...(isDropAnimating && { transitionDuration: '0.25s' }),
+});
 
 function Table({ columns, data }: { columns: any; data: any }) {
   const defaultColumn = React.useMemo(
     () => ({
       minWidth: 30,
       width: 200,
-      maxWidth: 400,
+      maxWidth: 600,
     }),
     [],
   );
@@ -64,11 +49,13 @@ function Table({ columns, data }: { columns: any; data: any }) {
     headerGroups,
     rows,
     prepareRow,
+    setColumnOrder,
     state,
     setGlobalFilter,
     allColumns,
   } = useTable(
     { columns, data, defaultColumn },
+    useColumnOrder,
     useFilters,
     useGroupBy,
     useGlobalFilter,
@@ -77,8 +64,9 @@ function Table({ columns, data }: { columns: any; data: any }) {
     useResizeColumns,
   );
   const { globalFilter } = state;
+  const currentColOrder = React.useRef<any>();
   return (
-    <>
+    <TableWraper>
       {/* Global filtering */}
       <GlobalFiltering filter={globalFilter} setFilter={setGlobalFilter} />
       {/* Hide/Show checkboxes */}
@@ -96,39 +84,106 @@ function Table({ columns, data }: { columns: any; data: any }) {
       <table {...getTableProps()}>
         <thead>
           {headerGroups.map((headerGroup) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <tr {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column) => (
-                // eslint-disable-next-line react/no-array-index-key
-                <TH {...column.getHeaderProps()}>
-                  <span
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                    style={{ display: 'inline', cursor: 'pointer' }}
+            <DragDropContext
+              onDragStart={() => {
+                currentColOrder.current = allColumns?.map((o: any) => o.id);
+              }}
+              onDragUpdate={(dragUpdateObj: any) => {
+                const colOrder = [...currentColOrder.current];
+                const sIndex = dragUpdateObj.source.index;
+                const dIndex = dragUpdateObj.destination && dragUpdateObj.destination.index;
+
+                if (typeof sIndex === 'number' && typeof dIndex === 'number') {
+                  colOrder.splice(sIndex, 1);
+                  colOrder.splice(dIndex, 0, dragUpdateObj.draggableId);
+                  setColumnOrder(colOrder);
+                }
+              }}
+              onDragEnd={() => null}
+            >
+              <Droppable droppableId="droppable" direction="horizontal">
+                {(droppableProvided) => (
+                  <tr
+                    {...headerGroup.getHeaderGroupProps()}
+                    ref={droppableProvided.innerRef}
                   >
-                    <span>
-                      {
-                        // eslint-disable-next-line no-nested-ternary
-                        column.isSorted ? (
-                          column.isSortedDesc ? (
-                            <span style={{ color: 'rgba(20,20,20,0.75)' }}>
-                              {'⬆  '}
-                            </span>
-                          ) : (
-                            <span style={{ color: 'rgba(20,20,20,0.75)' }}>
-                              {'⬇  '}
-                            </span>
-                          )
-                        ) : (
-                          ''
-                        )
-                      }
-                    </span>
-                    {column.render('Header')}
-                  </span>
-                  <ResizeBar {...column.getResizerProps()} />
-                </TH>
-              ))}
-            </tr>
+                    {headerGroup.headers.map((column, index) => {
+                      // eslint-disable-next-line no-console
+                      console.log(columns.accessor ? 'column' : 'column group');
+                      // eslint-disable-next-line no-console
+                      console.log(column);
+                      return (
+                        <Draggable
+                          key={column.id}
+                          draggableId={column.id}
+                          index={index}
+                          // isDragDisabled={column?.accessor}
+                        >
+                          {(provided, snapshot) => (
+                            <TH
+                              {...column.getHeaderProps()}
+                              className="cell header"
+                            >
+                              <div
+                                {...provided.draggableProps}
+                                {...provided.dragHandleProps}
+                                // {...extraProps}
+                                ref={provided.innerRef}
+                                style={{
+                                  ...itemStyle(
+                                    snapshot,
+                                    provided.draggableProps.style,
+                                  ),
+                                }}
+                              >
+                                <span
+                                  {...column.getHeaderProps(
+                                    column.getSortByToggleProps(),
+                                  )}
+                                  style={{
+                                    display: 'inline',
+                                    cursor: 'pointer',
+                                  }}
+                                >
+                                  <span>
+                                    {
+                                      // eslint-disable-next-line no-nested-ternary
+                                      column.isSorted ? (
+                                        column.isSortedDesc ? (
+                                          <span
+                                            style={{
+                                              color: 'rgba(20,20,20,0.75)',
+                                            }}
+                                          >
+                                            {'⬆  '}
+                                          </span>
+                                        ) : (
+                                          <span
+                                            style={{
+                                              color: 'rgba(20,20,20,0.75)',
+                                            }}
+                                          >
+                                            {'⬇  '}
+                                          </span>
+                                        )
+                                      ) : (
+                                        ''
+                                      )
+                                    }
+                                  </span>
+                                  {column.render('Header')}
+                                </span>
+                              </div>
+                              <ResizeBar {...column.getResizerProps()} />
+                            </TH>
+                          )}
+                        </Draggable>
+                      );
+                    })}
+                  </tr>
+                )}
+              </Droppable>
+            </DragDropContext>
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
@@ -145,7 +200,7 @@ function Table({ columns, data }: { columns: any; data: any }) {
           })}
         </tbody>
       </table>
-    </>
+    </TableWraper>
   );
 }
 
