@@ -86,14 +86,9 @@ function ProgramListComponent() {
 
   return (
     <div>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          flexDirection: 'column',
-        }}
-      >
-        Beneficiaries
+      {/* react-table for programs */}
+      <div>
+        Programs
         <Table columns={columns} data={data} />
       </div>
       <Link to="request/list">Requests</Link>
