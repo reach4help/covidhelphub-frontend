@@ -17,8 +17,8 @@ import {
   ResizeBar,
   TD,
   TH,
-  TableWraper,
-} from './styledComponent';
+  TableBody,
+} from './TableStyledComponents';
 
 // eslint-disable-next-line max-len
 const itemStyle = (
@@ -66,7 +66,7 @@ function Table({ columns, data }: { columns: any; data: any }) {
   const { globalFilter } = state;
   const currentColOrder = React.useRef<any>();
   return (
-    <TableWraper>
+    <>
       {/* Global filtering */}
       <GlobalFiltering filter={globalFilter} setFilter={setGlobalFilter} />
       {/* Hide/Show checkboxes */}
@@ -186,7 +186,7 @@ function Table({ columns, data }: { columns: any; data: any }) {
             </DragDropContext>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
+        <TableBody {...getTableBodyProps()}>
           {rows.map((row, index) => {
             prepareRow(row);
             return (
@@ -198,9 +198,9 @@ function Table({ columns, data }: { columns: any; data: any }) {
               </tr>
             );
           })}
-        </tbody>
+        </TableBody>
       </table>
-    </TableWraper>
+    </>
   );
 }
 

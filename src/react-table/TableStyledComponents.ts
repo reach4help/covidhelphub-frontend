@@ -1,8 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
-export const TableWraper = styled.div`
-  // width: 100%;
+export const TableBody = styled.div`
   max-height: 80vh;
   overflow: auto;
 `;
