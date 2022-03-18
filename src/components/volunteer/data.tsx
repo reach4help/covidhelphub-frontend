@@ -2,7 +2,8 @@
 const tableRows = [
   {
     id: 1,
-    name: 'Joshua Joe',
+    firstName: 'Joshua',
+    lastName: 'Joe',
     email: 'Joshua@email.com',
     phone: '+1657435678',
     postalCode: '10007',
@@ -10,7 +11,8 @@ const tableRows = [
   },
   {
     id: 2,
-    name: 'Jenney Ren',
+    firstName: 'Jenney',
+    lastName: 'Ren',
     email: 'ren.jenney@gmail.com',
     phone: '+1357475678',
     postalCode: 'M4V',
@@ -18,7 +20,8 @@ const tableRows = [
   },
   {
     id: 3,
-    name: 'Neck Abd',
+    firstName: 'Neck',
+    lastName: 'Abd',
     email: 'neck.abd@gmail.com',
     phone: '+9647504315501',
     postalCode: '42001',
@@ -26,7 +29,8 @@ const tableRows = [
   },
   {
     id: 4,
-    name: 'Joseph Ashwin',
+    firstName: 'Joseph',
+    lastName: 'Ashwin',
     email: 'ashwinkjoseph@gmail.com',
     phone: '+156779875678',
     postalCode: 'P5S',
@@ -34,7 +38,8 @@ const tableRows = [
   },
   {
     id: 5,
-    name: 'Pedro Filipe',
+    firstName: 'Pedro',
+    lastName: 'Filipe',
     email: 'pmsfilipe1@gmail.com',
     phone: '+3890546789',
     postalCode: '9870F',
@@ -42,7 +47,8 @@ const tableRows = [
   },
   {
     id: 6,
-    name: 'Shayan Chowdhury',
+    firstName: 'Shayan',
+    lastName: 'Chowdhury',
     email: 'shayan.chowdhury@gmail.com',
     phone: '+86475067890198765',
     postalCode: '18P1',
@@ -50,7 +56,8 @@ const tableRows = [
   },
   {
     id: 7,
-    name: 'Ethan Strominger',
+    firstName: 'Ethan',
+    lastName: 'Strominger',
     email: 'ethanstrominger2@gmail.com',
     phone: '+1657435678',
     postalCode: '10007',
@@ -58,7 +65,8 @@ const tableRows = [
   },
   {
     id: 8,
-    name: 'Beracah Lam',
+    firstName: 'Beracah',
+    lastName: 'Lam',
     email: 'bl100@wellesley.edu',
     phone: '+6879767475678',
     postalCode: 'M0076',
@@ -66,7 +74,8 @@ const tableRows = [
   },
   {
     id: 9,
-    name: 'Lakshay Agrawal',
+    firstName: 'Lakshay',
+    lastName: 'Agrawal',
     email: 'lakshay.ag09@gmail.com',
     phone: '+89022267878121',
     postalCode: '0P01',
@@ -74,7 +83,98 @@ const tableRows = [
   },
   {
     id: 10,
-    name: 'Shafaat Razin',
+    firstName: 'Shafaat',
+    lastName: 'Razin',
+    email: 'shafaat.razin@gmail.com',
+    phone: '+87654321989',
+    postalCode: 'U10T',
+    timeCommitment: new Date('2022-08-05').toString(),
+  },
+  {
+    id: 11,
+    firstName: 'Joshua',
+    lastName: 'Joe',
+    email: 'Joshua@email.com',
+    phone: '+1657435678',
+    postalCode: '10007',
+    timeCommitment: new Date('2022-03-11').toString(),
+  },
+  {
+    id: 12,
+    firstName: 'Jenney',
+    lastName: 'Ren',
+    email: 'ren.jenney@gmail.com',
+    phone: '+1357475678',
+    postalCode: 'M4V',
+    timeCommitment: new Date('2022-01-21').toString(),
+  },
+  {
+    id: 13,
+    firstName: 'Neck',
+    lastName: 'Abd',
+    email: 'neck.abd@gmail.com',
+    phone: '+9647504315501',
+    postalCode: '42001',
+    timeCommitment: new Date('2022-06-15').toString(),
+  },
+  {
+    id: 14,
+    firstName: 'Joseph',
+    lastName: 'Ashwin',
+    email: 'ashwinkjoseph@gmail.com',
+    phone: '+156779875678',
+    postalCode: 'P5S',
+    timeCommitment: new Date('2022-02-08').toString(),
+  },
+  {
+    id: 15,
+    firstName: 'Pedro',
+    lastName: 'Filipe',
+    email: 'pmsfilipe1@gmail.com',
+    phone: '+3890546789',
+    postalCode: '9870F',
+    timeCommitment: new Date('2022-11-22').toString(),
+  },
+  {
+    id: 16,
+    firstName: 'Shayan',
+    lastName: 'Chowdhury',
+    email: 'shayan.chowdhury@gmail.com',
+    phone: '+86475067890198765',
+    postalCode: '18P1',
+    timeCommitment: new Date('2022-10-05').toString(),
+  },
+  {
+    id: 17,
+    firstName: 'Ethan',
+    lastName: 'Strominger',
+    email: 'ethanstrominger2@gmail.com',
+    phone: '+1657435678',
+    postalCode: '10007',
+    timeCommitment: new Date('2022-01-09').toString(),
+  },
+  {
+    id: 18,
+    firstName: 'Beracah',
+    lastName: 'Lam',
+    email: 'bl100@wellesley.edu',
+    phone: '+6879767475678',
+    postalCode: 'M0076',
+    timeCommitment: new Date('2022-04-01').toString(),
+  },
+  {
+    id: 19,
+    firstName: 'Lakshay',
+    lastName: 'Agrawal',
+    email: 'lakshay.ag09@gmail.com',
+    phone: '+89022267878121',
+    postalCode: '0P01',
+    timeCommitment: new Date('2022-12-25').toString(),
+  },
+  {
+    id: 20,
+    firstName: 'Shafaat',
+    lastName: 'Razin',
     email: 'shafaat.razin@gmail.com',
     phone: '+87654321989',
     postalCode: 'U10T',
@@ -86,23 +186,37 @@ const tableRows = [
 const tableColumns = [
   {
     Header: 'Name',
-    accessor: 'name', // accessor is the "key" in the data
+    columns: [
+      {
+        Header: 'First Name',
+        accessor: 'firstName', // accessor is the "key" in the data
+      },
+      {
+        Header: 'Last Name',
+        accessor: 'lastName',
+      },
+    ],
   },
   {
-    Header: 'Email',
-    accessor: 'email',
-  },
-  {
-    Header: 'Phone',
-    accessor: 'phone',
-  },
-  {
-    Header: 'Postal Code',
-    accessor: 'postalCode',
-  },
-  {
-    Header: 'Time Commitment',
-    accessor: 'timeCommitment',
+    Header: 'Info',
+    columns: [
+      {
+        Header: 'Email',
+        accessor: 'email',
+      },
+      {
+        Header: 'Phone',
+        accessor: 'phone',
+      },
+      {
+        Header: 'Postal Code',
+        accessor: 'postalCode',
+      },
+      {
+        Header: 'Time Commitment',
+        accessor: 'timeCommitment',
+      },
+    ],
   },
 ];
 
