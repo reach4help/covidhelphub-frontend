@@ -1,16 +1,16 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { GoogleLogout } from 'react-google-login';
-import LoginContext from '../themes';
+import GoogleLoginContext from '../../store/GoogleLoginContext';
 
 function LogoutComponent() {
-  const { loginState, setLoginState } = useContext(LoginContext);
+  const { setLoginState } = useContext(GoogleLoginContext);
   const responseLogout = () => {
     setLoginState(false);
   };
 
-  useEffect(() => {
-    localStorage.setItem('loginstate', loginState);
-  }, [loginState]);
+  // useEffect(() => {
+  //   localStorage.setItem('loginstate', loginState);
+  // }, [loginState]);
 
   return (
     <GoogleLogout
