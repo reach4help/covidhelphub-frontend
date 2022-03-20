@@ -1,25 +1,27 @@
 import {
-  createContext, useState, useMemo, useEffect, Children,
+  createContext, useState, useMemo, useEffect,
 } from 'react';
-// import GoogleLogin from '../components/google_login/GoogleLogin';
+// creating a default value and intitalising GoogleLoginContext.
 const defaultvalue: { [key: string]: any } = {
   loginState: localStorage.getItem('loginstate') === 'true',
   setLoginState: () => {},
 };
 const GoogleLoginContext = createContext(defaultvalue);
 
-function GoogleLoginContextProvider() {
+function GoogleLoginContextProvider({ children }: any) {
   const [loginState, setLoginState] = useState(
     localStorage.getItem('loginstate') === 'true',
   );
+
   const value = useMemo(() => ({ loginState, setLoginState }), [loginState]);
+
   useEffect(() => {
-    localStorage.setItem('loginstate', loginState);
+    localStorage.setItem('loginstate', String(loginState));
   }, [loginState]);
-  // const { children } = this.props.children;
+
   return (
     <GoogleLoginContext.Provider value={value}>
-      {Children}
+      {children}
     </GoogleLoginContext.Provider>
   );
 }
