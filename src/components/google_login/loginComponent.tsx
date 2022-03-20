@@ -1,21 +1,13 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import GoogleLogin from 'react-google-login';
-import LoginContext from '../themes';
+import GoogleLoginContext from '../../store/GoogleLoginContext';
 
 function LoginComponent() {
-  const { loginState, setLoginState } = useContext(LoginContext);
+  const { setLoginState } = useContext(GoogleLoginContext);
 
   const handleSuccess = () => {
     setLoginState(true);
   };
-
-  useEffect(() => {
-    localStorage.setItem('loginstate', loginState);
-  }, [loginState]);
-
-  // const handleFailure = () => {
-  //   console.log('login failed');
-  // };
 
   return (
     <div>
@@ -24,7 +16,6 @@ function LoginComponent() {
         clientId="626018378389-sfff95dsu0orjgvv7lb21dqtuu6ceai7.apps.googleusercontent.com"
         buttonText="Login"
         onSuccess={handleSuccess}
-        // onFailure={handleFailure}
         cookiePolicy="single_host_origin"
       />
     </div>

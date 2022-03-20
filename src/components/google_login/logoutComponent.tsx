@@ -1,22 +1,18 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { GoogleLogout } from 'react-google-login';
-import LoginContext from '../themes';
+import GoogleLoginContext from '../../store/GoogleLoginContext';
 
 function LogoutComponent() {
-  const { loginState, setLoginState } = useContext(LoginContext);
-  const responseLogout = () => {
+  const { setLoginState } = useContext(GoogleLoginContext);
+  const handleSuccess = () => {
     setLoginState(false);
   };
-
-  useEffect(() => {
-    localStorage.setItem('loginstate', loginState);
-  }, [loginState]);
 
   return (
     <GoogleLogout
       clientId="626018378389-sfff95dsu0orjgvv7lb21dqtuu6ceai7.apps.googleusercontent.com"
       buttonText="Logout"
-      onLogoutSuccess={responseLogout}
+      onLogoutSuccess={handleSuccess}
     />
   );
 }
