@@ -13,9 +13,9 @@ function LoginComponent() {
     localStorage.setItem('loginstate', loginState);
   }, [loginState]);
 
-  const handleFailure = () => {
-    console.log('login failed');
-  };
+  // const handleFailure = () => {
+  //   console.log('login failed');
+  // };
 
   return (
     <div>
@@ -24,7 +24,7 @@ function LoginComponent() {
         clientId="626018378389-sfff95dsu0orjgvv7lb21dqtuu6ceai7.apps.googleusercontent.com"
         buttonText="Login"
         onSuccess={handleSuccess}
-        onFailure={handleFailure}
+        // onFailure={handleFailure}
         cookiePolicy="single_host_origin"
       />
     </div>

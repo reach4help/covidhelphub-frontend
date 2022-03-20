@@ -7,9 +7,7 @@ export default function Beneficiaries() {
   const columns = React.useMemo(() => tableColumns, []);
 
   return (
-    <div
-      style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}
-    >
+    <div>
       Beneficiaries
       <Table columns={columns} data={data} />
     </div>
