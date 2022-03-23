@@ -19,6 +19,7 @@ import Volunteers from './components/volunteer/Volunteers';
 function App() {
   // console.log(NavBar)
   // TODO: rethink lines for request/list with multiple parameters
+
   return (
     <div>
       <nav className="navbar">

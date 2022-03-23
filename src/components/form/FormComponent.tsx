@@ -2,7 +2,10 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Style from './FormComponent.module.css';
 
-const formTypes = [
+const formTypes: {
+  key: string;
+  addr: string;
+}[] = [
   { key: 'Beneficiaries', addr: '/form/beneficiaries' },
   { key: 'Volunteers', addr: '/form/volunteers' },
 ];
