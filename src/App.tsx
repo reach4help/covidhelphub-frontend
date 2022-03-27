@@ -20,10 +20,11 @@ function App() {
   // console.log(NavBar)
   // TODO: rethink lines for request/list with multiple parameters
   return (
-    <div>
-      <nav className="navbar">
+    <div className="d-flex flex-row">
+      <div className="sidebar-nav">
+        <p className="font-weight-bold">Reach4Help</p>
         <NavBar />
-      </nav>
+      </div>
 
       <div className="container mt - 3">
         <Switch>
@@ -38,10 +39,10 @@ function App() {
           {/* <Route exact path="/request/list" component={ProgramRequestSelection} /> */}
           {/* <Route exact path="/request/list" component={RequestCreateComponent} /> */}
           {/* <Route exact path="/request/create" component={RequestCreateComponent} /> */}
-          <Route exact path="/programs">
+          <Route exact path="/programs" component={Programs}>
             <Redirect to="/programs/open" />
           </Route>
-          <Route path="/programs" component={Programs} />
+          <Route exact path="/programs/open" component={Programs} />
           <Route exact path="/stage/list" component={StageListComponent} />
           <Route
             exact
@@ -63,6 +64,7 @@ function App() {
             path="/form/volunteers/submitted"
             component={FormSubmitComponent}
           />
+
           <Route exact path="/form" component={FormComponent} />
           <Route exact path="/volunteers" component={Volunteers} />
           <Route exact path="/beneficiaries" component={Beneficiaries} />
