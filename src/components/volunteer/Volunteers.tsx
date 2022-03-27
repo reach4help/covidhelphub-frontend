@@ -9,9 +9,7 @@ export default function Volunteers() {
   const columns = React.useMemo(() => tableColumns, []);
 
   return (
-    <div
-      style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}
-    >
+    <div>
       Volunteers
       <Table columns={columns} data={data} />
     </div>

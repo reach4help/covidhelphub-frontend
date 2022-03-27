@@ -1,7 +1,9 @@
-import React from 'react';
+import { useContext } from 'react';
+import GoogleLoginContext from '../store/GoogleLoginContext';
+import GoogleLogin from './google_login/GoogleLogin';
 
-// eslint-disable-next-line func-names
 function HomeComponent({ location }: { location: any }) {
+  const { loginState } = useContext(GoogleLoginContext);
   return (
     <h1>
       Content for
@@ -9,6 +11,8 @@ function HomeComponent({ location }: { location: any }) {
       ${location.pathname}
       "`}
       TBD
+      <GoogleLogin />
+      {loginState ? 'Logged In: True' : 'Logged In: False'}
     </h1>
   );
 }
