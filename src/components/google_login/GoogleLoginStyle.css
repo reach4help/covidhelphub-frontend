@@ -1,0 +1,20 @@
+img {
+    float: right;
+    border-radius: 50%;
+    width:40px;
+    height:40px;
+    object-fit:cover;
+    margin:0 auto 20px auto;
+  }
+
+.profile
+{
+    font-family: sans-serif;
+    text-align: left;
+    max-width: 200px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 20px;
+    /* background-color: blue; */
+    border-radius: 25px;
+    align-items: right;
+}
