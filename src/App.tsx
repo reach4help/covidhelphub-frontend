@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -15,16 +15,34 @@ import Programs from './components/program/Programs';
 // import ProgramRequestSelection from './components/request/RequestProgramSelection';
 import Beneficiaries from './components/beneficiary/Beneficiaries';
 import Volunteers from './components/volunteer/Volunteers';
+// import GoogleLogin from './components/google_login/GoogleLogin';
+import UserProfileDisplayComponent from './components/userProfileDisplay/UserProfileDisplayComponent';
+import GoogleLoginContext from './store/GoogleLoginContext';
+import StyledDiv from './StyledDiv';
 
 function App() {
   // console.log(NavBar)
   // TODO: rethink lines for request/list with multiple parameters
+  const { loginState } = useContext(GoogleLoginContext);
 
   return (
     <div>
       <nav className="navbar">
         <NavBar />
       </nav>
+      {loginState ? (
+        <StyledDiv>
+          <br />
+          <br />
+          <br />
+          <br />
+          <UserProfileDisplayComponent />
+          <br />
+          <br />
+        </StyledDiv>
+      ) : (
+        <div />
+      )}
 
       <div className="container mt - 3">
         <Switch>

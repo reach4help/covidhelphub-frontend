@@ -3,16 +3,15 @@ import { GoogleLogout } from 'react-google-login';
 import GoogleLoginContext from '../../store/GoogleLoginContext';
 
 function LogoutComponent() {
-  const { setLoginState } = useContext(GoogleLoginContext);
-  // const [name, setName] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [url, setUrl] = useState('');
+  const {
+    setLoginState, setName, setEmail, setUrl,
+  } = useContext(GoogleLoginContext);
 
   const handleSuccess = () => {
     setLoginState(false);
-    // setName(response.profileObj.name);
-    // setEmail(response.profileObj.email);
-    // setUrl(response.profileObj.imageUrl);
+    setName(null);
+    setEmail(null);
+    setUrl(null);
   };
 
   return (

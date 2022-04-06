@@ -12,8 +12,8 @@ function LoginComponent() {
     setEmail(response.profileObj.email);
     setUrl(response.profileObj.imageUrl);
     setLoginState(true);
-    console.log(response);
-    console.log('hello');
+    // console.log(response);
+    // console.log('hello');
   };
 
   return (

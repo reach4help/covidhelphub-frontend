@@ -1,0 +1,16 @@
+// import styled from 'styled-components';
+// import { useContext } from 'react';
+// import GoogleLoginContext
+//   from '../../store/GoogleLoginContext';
+
+// const {
+//   name, url,
+// } = useContext(GoogleLoginContext);
+// const StyledProfileImg = styled.img.attrs({
+//   src:{ url },
+//   alt:{ name },})`
+// width: 100px;
+// height: 100px;
+// border: 1px solid blue;
+// `;
+// export default StyledProfileImg;

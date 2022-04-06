@@ -5,11 +5,11 @@ import {
 const defaultvalue: { [key: string]: any } = {
   loginState: localStorage.getItem('loginstate') === 'true',
   setLoginState: () => {},
-  name: localStorage.getItem('name') === 'true',
+  name: localStorage.getItem('name'),
   setName: () => {},
-  email: localStorage.getItem('email') === 'true',
+  email: localStorage.getItem('email'),
   setEmail: () => {},
-  url: localStorage.getItem('url') === 'true',
+  url: localStorage.getItem('url'),
   setUrl: () => {},
 };
 const GoogleLoginContext = createContext(defaultvalue);
@@ -18,9 +18,9 @@ function GoogleLoginContextProvider({ children }: any) {
   const [loginState, setLoginState] = useState(
     localStorage.getItem('loginstate') === 'true',
   );
-  const [name, setName] = useState(localStorage.getItem('name') === 'true');
-  const [email, setEmail] = useState(localStorage.getItem('email') === 'true');
-  const [url, setUrl] = useState(localStorage.getItem('url') === 'true');
+  const [name, setName] = useState(localStorage.getItem('name'));
+  const [email, setEmail] = useState(localStorage.getItem('email'));
+  const [url, setUrl] = useState(localStorage.getItem('url'));
 
   const value = useMemo(
     () => ({
