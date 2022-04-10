@@ -88,7 +88,6 @@ function ProgramListComponent() {
     <div>
       {/* react-table for programs */}
       <div>
-        Programs
         <Table columns={columns} data={data} />
       </div>
       <Link to="request/list">Requests</Link>

@@ -8,7 +8,6 @@ export default function Beneficiaries() {
 
   return (
     <div>
-      Beneficiaries
       <Table columns={columns} data={data} />
     </div>
   );

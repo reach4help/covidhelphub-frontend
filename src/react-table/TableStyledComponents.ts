@@ -1,12 +1,13 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
-export const TableBody = styled.div`
-  max-height: 80vh;
-  overflow: auto;
-`;
+// export const TableBody = styled.div`
+//   max-height: 80vh;
+//   width: 100%;
+//   overflow: auto;
+// `;
 
-export const ColumnVisibilityCheckboxes = styled.div`
+export const ColumnVisibilityCheckboxes = styled.select`
   display: flex;
   margin: 1rem;
 `;
@@ -30,15 +31,15 @@ export const ResizeBar = styled.div`
   }
 `;
 
-export const TD = styled.td`
-  padding: 0.4rem;
-  overflow: hidden;
-  font-size: 0.95rem;
-`;
+// export const TD = styled.td`
+//   padding: 0.4rem;
+//   overflow: hidden;
+//   font-size: 0.95rem;
+// `;
 
-export const TH = styled.th`
-  padding: 0.4rem;
-  text-align: left;
-  font-size: 1rem;
-  font-weight: 600;
-`;
+// export const TH = styled.th`
+//   padding: 0.4rem;
+//   text-align: left;
+//   font-size: 1rem;
+//   font-weight: 600;
+// `;
