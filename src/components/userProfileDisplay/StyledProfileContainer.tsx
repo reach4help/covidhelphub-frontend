@@ -8,10 +8,11 @@ const StyledProfileContainer = styled.div`
   max-width: 300px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding: 12px;
-  border-radius: 25px;
+  border-radius: 15px;
   align-items: right;
   float: right;
   display: block;
   margin-right: 10px;
+  margin-bottom: 30px;
 `;
 export default StyledProfileContainer;
