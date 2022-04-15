@@ -12,5 +12,6 @@ const StyledProfileContainer = styled.div`
   align-items: right;
   float: right;
   display: block;
+  margin-right: 10px;
 `;
 export default StyledProfileContainer;

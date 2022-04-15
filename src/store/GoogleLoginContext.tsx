@@ -3,7 +3,7 @@ import {
 } from 'react';
 // creating a default value and intitalising GoogleLoginContext.
 const defaultvalue: { [key: string]: any } = {
-  loginState: localStorage.getItem('loginstate') === 'true',
+  loginState: localStorage.getItem('loginstate'),
   setLoginState: () => {},
   name: localStorage.getItem('name'),
   setName: () => {},
@@ -16,7 +16,7 @@ const GoogleLoginContext = createContext(defaultvalue);
 
 function GoogleLoginContextProvider({ children }: any) {
   const [loginState, setLoginState] = useState(
-    localStorage.getItem('loginstate') === 'true',
+    localStorage.getItem('loginstate'),
   );
   const [name, setName] = useState(localStorage.getItem('name'));
   const [email, setEmail] = useState(localStorage.getItem('email'));

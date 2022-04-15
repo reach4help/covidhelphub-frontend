@@ -18,7 +18,7 @@ import Volunteers from './components/volunteer/Volunteers';
 // import GoogleLogin from './components/google_login/GoogleLogin';
 import UserProfileDisplayComponent from './components/userProfileDisplay/UserProfileDisplayComponent';
 import GoogleLoginContext from './store/GoogleLoginContext';
-import StyledDiv from './StyledDiv';
+// import StyledDiv from './StyledDiv';
 
 function App() {
   // console.log(NavBar)
@@ -30,20 +30,7 @@ function App() {
       <nav className="navbar">
         <NavBar />
       </nav>
-      {loginState ? (
-        <StyledDiv>
-          <br />
-          <br />
-          <br />
-          <br />
-          <UserProfileDisplayComponent />
-          <br />
-          <br />
-        </StyledDiv>
-      ) : (
-        <div />
-      )}
-
+      {loginState ? <UserProfileDisplayComponent /> : <div />}
       <div className="container mt - 3">
         <Switch>
           <Route
