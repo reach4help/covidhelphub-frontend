@@ -11,25 +11,23 @@ function UserProfileDisplayComponent() {
   } = useContext(GoogleLoginContext);
 
   return (
-    <div>
-      <StyledProfileContainer>
-        <div>
-          {loginState && url != null ? (
-            <StyledProfileImg src={url} alt={name} />
-          ) : (
-            ''
-          )}
-        </div>
-        <StyledProfileInfo>
-          {loginState && name != null ? (
-            <StyledProfileName>{name}</StyledProfileName>
-          ) : (
-            ''
-          )}
-          {loginState && email != null ? <div>{email}</div> : ''}
-        </StyledProfileInfo>
-      </StyledProfileContainer>
-    </div>
+    <StyledProfileContainer>
+      <div>
+        {loginState && url != null ? (
+          <StyledProfileImg src={url} alt={name} />
+        ) : (
+          ''
+        )}
+      </div>
+      <StyledProfileInfo>
+        {loginState && name != null ? (
+          <StyledProfileName>{name}</StyledProfileName>
+        ) : (
+          ''
+        )}
+        {loginState && email != null ? <div>{email}</div> : ''}
+      </StyledProfileInfo>
+    </StyledProfileContainer>
   );
 }
 

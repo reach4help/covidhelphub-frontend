@@ -29,10 +29,10 @@ function App() {
         <p className="font-weight-bold">Reach4Help</p>
         <NavBar />
       </div>
-      <div className="flex-column w-100 p-3">
+      <div className="d-flex flex-column w-100 p-3">
         {loginState ? <UserProfileDisplayComponent /> : <div />}
-        <br />
-        <br />
+        {/* <br />
+        <br /> */}
         <div className="container mt - 3">
           <Switch>
             <Route

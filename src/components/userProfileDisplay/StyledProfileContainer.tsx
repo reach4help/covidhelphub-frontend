@@ -10,8 +10,10 @@ const StyledProfileContainer = styled.div`
   padding: 12px;
   border-radius: 15px;
   align-items: right;
-  float: right;
-  display: block;
+  align-self: flex-end;
+  // float: right;
+  // display: block;
+
   margin-right: 10px;
   margin-bottom: 30px;
 `;
