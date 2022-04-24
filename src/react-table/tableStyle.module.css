@@ -1,3 +1,6 @@
+.reactTablePageWraper{
+  margin-top: 2rem;
+}
 .tableContainer {
   width: 100%;
   overflow: auto;
@@ -130,4 +133,51 @@
   * {
     scrollbar-width: 10px;
   }
+}
+
+
+.visible {
+  position: fixed;
+  background-color: white;
+  padding: 0.5rem;
+  z-index: 3;
+  max-height: 250px;
+  max-width: max-content;
+  overflow: auto;
+  box-shadow: -3px -0px 8px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5rem;
+}
+
+.visible>div>label {
+  display: flex;
+  column-gap: 0.5rem;
+  align-items: center;
+}
+
+.featuresWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.showHidBtn {
+  border: 0.75px solid gray;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  margin-right: 1rem;
+  width: 180px;
+  cursor: pointer;
+}
+
+.searchWrapper {
+  width: 100%;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.searchInput {
+  width: 40%;
+  padding: 0.25rem;
+  border: 0.5px solid gray;
+  border-radius: 0.25rem;
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import Style from './tableStyle.module.css';
 
 export default function GlobalFiltering({
   filter,
@@ -8,14 +9,13 @@ export default function GlobalFiltering({
   setFilter: any;
 }) {
   return (
-    <span style={{ margin: '1rem' }}>
-      Search:
-      {' '}
+    <div className={Style.searchWrapper}>
       <input
-        style={{ padding: '0.25rem' }}
+        className={Style.searchInput}
         value={filter || ''}
         onChange={(e) => setFilter(e.target.value)}
+        placeholder="Search here..."
       />
-    </span>
+    </div>
   );
 }

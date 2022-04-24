@@ -7,10 +7,7 @@ import styled from 'styled-components';
 //   overflow: auto;
 // `;
 
-export const ColumnVisibilityCheckboxes = styled.select`
-  display: flex;
-  margin: 1rem;
-`;
+export const ColumnVisibilityCheckboxes = styled.div``;
 
 export const ResizeBar = styled.div`
   display: inline-block;

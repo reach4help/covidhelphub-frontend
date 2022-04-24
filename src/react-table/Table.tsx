@@ -13,7 +13,7 @@ import {
 } from 'react-table';
 import Style from './tableStyle.module.css';
 import GlobalFiltering from './GlobalFiltering';
-import { ColumnVisibilityCheckboxes, ResizeBar } from './TableStyledComponents';
+import { ResizeBar } from './TableStyledComponents';
 
 // Item Style for Drag and Drop styling
 const itemStyle = (
@@ -60,24 +60,37 @@ function Table({ columns, data }: { columns: any; data: any }) {
   );
   const { globalFilter } = state;
   const currentColOrder = React.useRef<any>();
+  const [visible, setVisible] = React.useState(false);
   return (
-    <>
+    <div className={Style.reactTablePageWraper}>
       {/* Global filtering */}
-      <GlobalFiltering filter={globalFilter} setFilter={setGlobalFilter} />
-      {/* Hide/Show checkboxes */}
-      <ColumnVisibilityCheckboxes>
-        <option>
-          <p>Hello</p>
-        </option>
-      </ColumnVisibilityCheckboxes>
-      {allColumns.map((column) => (
-        <div key={column.id}>
-          <label>
-            <input type="checkbox" {...column.getToggleHiddenProps()} />
-            {column.Header}
-          </label>
+      <div className={Style.featuresWrapper}>
+        <GlobalFiltering filter={globalFilter} setFilter={setGlobalFilter} />
+        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+        <div tabIndex={0} onFocus={() => setVisible(true)}>
+          <div className={Style.showHidBtn}>Show/Hide columns &#9660;</div>
+          <div
+            style={visible ? { display: 'block' } : { display: 'none' }}
+            className={Style.visible}
+          >
+            {allColumns.map((column) => (
+              <div key={column.id}>
+                <label onBlur={() => setVisible(false)}>
+                  <input
+                    type="checkbox"
+                    tabIndex={-2}
+                    {...column.getToggleHiddenProps()}
+                  />
+                  {column.Header}
+                </label>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
+        {/* <button type="button"
+        onClick={() => setVisible(!visible)}>Show/Hide Columns &#9660;</button> */}
+      </div>
+      {/* Hide/Show checkboxes */}
       {/* Table component */}
       <div className={Style.tableContainer}>
         <BTable className={Style.table} {...getTableProps()}>
@@ -204,7 +217,7 @@ function Table({ columns, data }: { columns: any; data: any }) {
           </tbody>
         </BTable>
       </div>
-    </>
+    </div>
   );
 }
 
