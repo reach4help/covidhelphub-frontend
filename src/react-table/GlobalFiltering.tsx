@@ -1,5 +1,5 @@
 import React from 'react';
-import Style from './tableStyle.module.css';
+import { SearchWrapper } from './TableStyledComponents';
 
 export default function GlobalFiltering({
   filter,
@@ -9,13 +9,13 @@ export default function GlobalFiltering({
   setFilter: any;
 }) {
   return (
-    <div className={Style.searchWrapper}>
+    <SearchWrapper>
       <input
-        className={Style.searchInput}
+        type="text"
         value={filter || ''}
         onChange={(e) => setFilter(e.target.value)}
         placeholder="Search here..."
       />
-    </div>
+    </SearchWrapper>
   );
 }

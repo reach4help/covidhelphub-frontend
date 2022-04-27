@@ -1,5 +1,4 @@
 import React from 'react';
-import BTable from 'react-bootstrap/Table';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import {
   useTable,
@@ -11,9 +10,18 @@ import {
   useResizeColumns,
   useColumnOrder,
 } from 'react-table';
-import Style from './tableStyle.module.css';
 import GlobalFiltering from './GlobalFiltering';
-import { ResizeBar } from './TableStyledComponents';
+import {
+  FeaturesWrapper,
+  ResizeBar,
+  ShowHideBtn,
+  ColumnsListBox,
+  StyledTable,
+  TableWrapper,
+  SortingArrowDESC,
+  SortingArrowASC,
+  ComponentWrapper,
+} from './TableStyledComponents';
 
 // Item Style for Drag and Drop styling
 const itemStyle = (
@@ -60,22 +68,25 @@ function Table({ columns, data }: { columns: any; data: any }) {
   );
   const { globalFilter } = state;
   const currentColOrder = React.useRef<any>();
-  const [visible, setVisible] = React.useState(false);
+  const [columnsListToShowHideColumns, setColumnsListToShowHideColumns] = React.useState(false);
   return (
-    <div className={Style.reactTablePageWraper}>
+    <ComponentWrapper>
       {/* Global filtering */}
-      <div className={Style.featuresWrapper}>
+      <FeaturesWrapper>
         <GlobalFiltering filter={globalFilter} setFilter={setGlobalFilter} />
         {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
-        <div tabIndex={0} onFocus={() => setVisible(true)}>
-          <div className={Style.showHidBtn}>Show/Hide columns &#9660;</div>
-          <div
-            style={visible ? { display: 'block' } : { display: 'none' }}
-            className={Style.visible}
+        <div tabIndex={0} onFocus={() => setColumnsListToShowHideColumns(true)}>
+          <ShowHideBtn>Show/Hide columns &#9660;</ShowHideBtn>
+          <ColumnsListBox
+            style={
+              columnsListToShowHideColumns
+                ? { display: 'block' }
+                : { display: 'none' }
+            }
           >
             {allColumns.map((column) => (
               <div key={column.id}>
-                <label onBlur={() => setVisible(false)}>
+                <label onBlur={() => setColumnsListToShowHideColumns(false)}>
                   <input
                     type="checkbox"
                     tabIndex={-2}
@@ -85,15 +96,15 @@ function Table({ columns, data }: { columns: any; data: any }) {
                 </label>
               </div>
             ))}
-          </div>
+          </ColumnsListBox>
         </div>
         {/* <button type="button"
         onClick={() => setVisible(!visible)}>Show/Hide Columns &#9660;</button> */}
-      </div>
+      </FeaturesWrapper>
       {/* Hide/Show checkboxes */}
       {/* Table component */}
-      <div className={Style.tableContainer}>
-        <BTable className={Style.table} {...getTableProps()}>
+      <TableWrapper>
+        <StyledTable {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
               <DragDropContext
@@ -128,8 +139,6 @@ function Table({ columns, data }: { columns: any; data: any }) {
                         console.log(
                           columns.accessor ? 'column' : 'column group',
                         );
-                        // eslint-disable-next-line no-console
-                        console.log(column);
                         return (
                           <Draggable
                             key={column.id}
@@ -138,10 +147,7 @@ function Table({ columns, data }: { columns: any; data: any }) {
                             // isDragDisabled={column?.accessor}
                           >
                             {(provided, snapshot) => (
-                              <th
-                                {...column.getHeaderProps()}
-                                className={Style.th || 'cell header'}
-                              >
+                              <th {...column.getHeaderProps()}>
                                 <div
                                   {...provided.draggableProps}
                                   {...provided.dragHandleProps}
@@ -168,17 +174,13 @@ function Table({ columns, data }: { columns: any; data: any }) {
                                         // eslint-disable-next-line no-nested-ternary
                                         column.isSorted ? (
                                           column.isSortedDesc ? (
-                                            <span
-                                              className={Style.sortingArrow}
-                                            >
+                                            <SortingArrowDESC>
                                               {'⬆  '}
-                                            </span>
+                                            </SortingArrowDESC>
                                           ) : (
-                                            <span
-                                              className={Style.sortingArrow}
-                                            >
+                                            <SortingArrowASC>
                                               {'⬇  '}
-                                            </span>
+                                            </SortingArrowASC>
                                           )
                                         ) : (
                                           ''
@@ -200,24 +202,22 @@ function Table({ columns, data }: { columns: any; data: any }) {
               </DragDropContext>
             ))}
           </thead>
-          <tbody className={Style.tbody} {...getTableBodyProps()}>
+          <tbody {...getTableBodyProps()}>
             {rows.map((row, index) => {
               prepareRow(row);
               return (
                 // eslint-disable-next-line react/no-array-index-key
-                <tr className={Style.tr} {...row.getRowProps()} key={index}>
+                <tr {...row.getRowProps()} key={index}>
                   {row.cells.map((cell) => (
-                    <td className={Style.td} {...cell.getCellProps()}>
-                      {cell.render('Cell')}
-                    </td>
+                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
                   ))}
                 </tr>
               );
             })}
           </tbody>
-        </BTable>
-      </div>
-    </div>
+        </StyledTable>
+      </TableWrapper>
+    </ComponentWrapper>
   );
 }
 
