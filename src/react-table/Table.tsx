@@ -1,7 +1,6 @@
 import React from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import {
-  // eslint-disable-next-line max-len
   useTable,
   useGroupBy,
   useFilters,
@@ -13,14 +12,18 @@ import {
 } from 'react-table';
 import GlobalFiltering from './GlobalFiltering';
 import {
-  ColumnVisibilityCheckboxes,
+  FeaturesWrapper,
   ResizeBar,
-  TD,
-  TH,
-  TableBody,
+  ShowHideBtn,
+  ColumnsListBox,
+  StyledTable,
+  TableWrapper,
+  SortingArrowDESC,
+  SortingArrowASC,
+  ComponentWrapper,
 } from './TableStyledComponents';
 
-// eslint-disable-next-line max-len
+// Item Style for Drag and Drop styling
 const itemStyle = (
   { isDragging, isDropAnimating }: { isDragging: any; isDropAnimating: any },
   draggableStyle: any,
@@ -33,12 +36,12 @@ const itemStyle = (
   ...(isDropAnimating && { transitionDuration: '0.25s' }),
 });
 
+// Table Component
 function Table({ columns, data }: { columns: any; data: any }) {
+  // column size
   const defaultColumn = React.useMemo(
     () => ({
-      minWidth: 30,
-      width: 200,
-      maxWidth: 600,
+      width: 225,
     }),
     [],
   );
@@ -65,142 +68,156 @@ function Table({ columns, data }: { columns: any; data: any }) {
   );
   const { globalFilter } = state;
   const currentColOrder = React.useRef<any>();
+  const [columnsListToShowHideColumns, setColumnsListToShowHideColumns] = React.useState(false);
   return (
-    <>
+    <ComponentWrapper>
       {/* Global filtering */}
-      <GlobalFiltering filter={globalFilter} setFilter={setGlobalFilter} />
+      <FeaturesWrapper>
+        <GlobalFiltering filter={globalFilter} setFilter={setGlobalFilter} />
+        {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+        <div tabIndex={0} onFocus={() => setColumnsListToShowHideColumns(true)}>
+          <ShowHideBtn>Show/Hide columns &#9660;</ShowHideBtn>
+          <ColumnsListBox
+            style={
+              columnsListToShowHideColumns
+                ? { display: 'block' }
+                : { display: 'none' }
+            }
+          >
+            {allColumns.map((column) => (
+              <div key={column.id}>
+                <label onBlur={() => setColumnsListToShowHideColumns(false)}>
+                  <input
+                    type="checkbox"
+                    tabIndex={-2}
+                    {...column.getToggleHiddenProps()}
+                  />
+                  {column.Header}
+                </label>
+              </div>
+            ))}
+          </ColumnsListBox>
+        </div>
+        {/* <button type="button"
+        onClick={() => setVisible(!visible)}>Show/Hide Columns &#9660;</button> */}
+      </FeaturesWrapper>
       {/* Hide/Show checkboxes */}
-      <ColumnVisibilityCheckboxes>
-        {allColumns.map((column) => (
-          <div key={column.id}>
-            <label>
-              <input type="checkbox" {...column.getToggleHiddenProps()} />
-              {column.Header}
-            </label>
-          </div>
-        ))}
-      </ColumnVisibilityCheckboxes>
       {/* Table component */}
-      <table {...getTableProps()}>
-        <thead>
-          {headerGroups.map((headerGroup) => (
-            <DragDropContext
-              onDragStart={() => {
-                currentColOrder.current = allColumns?.map((o: any) => o.id);
-              }}
-              onDragUpdate={(dragUpdateObj: any) => {
-                const colOrder = [...currentColOrder.current];
-                const sIndex = dragUpdateObj.source.index;
-                const dIndex = dragUpdateObj.destination && dragUpdateObj.destination.index;
+      <TableWrapper>
+        <StyledTable {...getTableProps()}>
+          <thead>
+            {headerGroups.map((headerGroup) => (
+              <DragDropContext
+                onDragStart={() => {
+                  currentColOrder.current = allColumns?.map((o: any) => o.id);
+                }}
+                onDragUpdate={(dragUpdateObj: any) => {
+                  const colOrder = [...currentColOrder.current];
+                  const sIndex = dragUpdateObj.source.index;
+                  const dIndex = dragUpdateObj.destination
+                    && dragUpdateObj.destination.index;
 
-                if (typeof sIndex === 'number' && typeof dIndex === 'number') {
-                  colOrder.splice(sIndex, 1);
-                  colOrder.splice(dIndex, 0, dragUpdateObj.draggableId);
-                  setColumnOrder(colOrder);
-                }
-              }}
-              onDragEnd={() => null}
-            >
-              <Droppable droppableId="droppable" direction="horizontal">
-                {(droppableProvided) => (
-                  <tr
-                    {...headerGroup.getHeaderGroupProps()}
-                    ref={droppableProvided.innerRef}
-                  >
-                    {headerGroup.headers.map((column, index) => {
-                      // eslint-disable-next-line no-console
-                      console.log(columns.accessor ? 'column' : 'column group');
-                      // eslint-disable-next-line no-console
-                      console.log(column);
-                      return (
-                        <Draggable
-                          key={column.id}
-                          draggableId={column.id}
-                          index={index}
-                          // isDragDisabled={column?.accessor}
-                        >
-                          {(provided, snapshot) => (
-                            <TH
-                              {...column.getHeaderProps()}
-                              className="cell header"
-                            >
-                              <div
-                                {...provided.draggableProps}
-                                {...provided.dragHandleProps}
-                                // {...extraProps}
-                                ref={provided.innerRef}
-                                style={{
-                                  ...itemStyle(
-                                    snapshot,
-                                    provided.draggableProps.style,
-                                  ),
-                                }}
-                              >
-                                <span
-                                  {...column.getHeaderProps(
-                                    column.getSortByToggleProps(),
-                                  )}
+                  if (
+                    typeof sIndex === 'number'
+                    && typeof dIndex === 'number'
+                  ) {
+                    colOrder.splice(sIndex, 1);
+                    colOrder.splice(dIndex, 0, dragUpdateObj.draggableId);
+                    setColumnOrder(colOrder);
+                  }
+                }}
+                onDragEnd={() => null}
+              >
+                <Droppable droppableId="droppable" direction="horizontal">
+                  {(droppableProvided) => (
+                    <tr
+                      {...headerGroup.getHeaderGroupProps()}
+                      ref={droppableProvided.innerRef}
+                    >
+                      {headerGroup.headers.map((column, index) => {
+                        // eslint-disable-next-line no-console
+                        console.log(
+                          columns.accessor ? 'column' : 'column group',
+                        );
+                        return (
+                          <Draggable
+                            key={column.id}
+                            draggableId={column.id}
+                            index={index}
+                            // isDragDisabled={column?.accessor}
+                          >
+                            {(provided, snapshot) => (
+                              <th {...column.getHeaderProps()}>
+                                <div
+                                  {...provided.draggableProps}
+                                  {...provided.dragHandleProps}
+                                  // {...extraProps}
+                                  ref={provided.innerRef}
                                   style={{
-                                    display: 'inline',
-                                    cursor: 'pointer',
+                                    ...itemStyle(
+                                      snapshot,
+                                      provided.draggableProps.style,
+                                    ),
                                   }}
                                 >
-                                  <span>
-                                    {
-                                      // eslint-disable-next-line no-nested-ternary
-                                      column.isSorted ? (
-                                        column.isSortedDesc ? (
-                                          <span
-                                            style={{
-                                              color: 'rgba(20,20,20,0.75)',
-                                            }}
-                                          >
-                                            {'⬆  '}
-                                          </span>
+                                  <span
+                                    {...column.getHeaderProps(
+                                      column.getSortByToggleProps(),
+                                    )}
+                                    style={{
+                                      display: 'inline',
+                                      cursor: 'pointer',
+                                    }}
+                                  >
+                                    <span>
+                                      {
+                                        // eslint-disable-next-line no-nested-ternary
+                                        column.isSorted ? (
+                                          column.isSortedDesc ? (
+                                            <SortingArrowDESC>
+                                              {'⬆  '}
+                                            </SortingArrowDESC>
+                                          ) : (
+                                            <SortingArrowASC>
+                                              {'⬇  '}
+                                            </SortingArrowASC>
+                                          )
                                         ) : (
-                                          <span
-                                            style={{
-                                              color: 'rgba(20,20,20,0.75)',
-                                            }}
-                                          >
-                                            {'⬇  '}
-                                          </span>
+                                          ''
                                         )
-                                      ) : (
-                                        ''
-                                      )
-                                    }
+                                      }
+                                    </span>
+                                    {column.render('Header')}
                                   </span>
-                                  {column.render('Header')}
-                                </span>
-                              </div>
-                              <ResizeBar {...column.getResizerProps()} />
-                            </TH>
-                          )}
-                        </Draggable>
-                      );
-                    })}
-                  </tr>
-                )}
-              </Droppable>
-            </DragDropContext>
-          ))}
-        </thead>
-        <TableBody {...getTableBodyProps()}>
-          {rows.map((row, index) => {
-            prepareRow(row);
-            return (
-              // eslint-disable-next-line react/no-array-index-key
-              <tr {...row.getRowProps()} key={index}>
-                {row.cells.map((cell) => (
-                  <TD {...cell.getCellProps()}>{cell.render('Cell')}</TD>
-                ))}
-              </tr>
-            );
-          })}
-        </TableBody>
-      </table>
-    </>
+                                </div>
+                                <ResizeBar {...column.getResizerProps()} />
+                              </th>
+                            )}
+                          </Draggable>
+                        );
+                      })}
+                    </tr>
+                  )}
+                </Droppable>
+              </DragDropContext>
+            ))}
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {rows.map((row, index) => {
+              prepareRow(row);
+              return (
+                // eslint-disable-next-line react/no-array-index-key
+                <tr {...row.getRowProps()} key={index}>
+                  {row.cells.map((cell) => (
+                    <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </StyledTable>
+      </TableWrapper>
+    </ComponentWrapper>
   );
 }
 

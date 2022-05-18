@@ -10,7 +10,6 @@ export default function Volunteers() {
 
   return (
     <div>
-      Volunteers
       <Table columns={columns} data={data} />
     </div>
   );
